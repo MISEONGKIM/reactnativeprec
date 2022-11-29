@@ -5,12 +5,20 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Completeness */
-    "skipLibCheck": true,                              /* Skip type checking all .d.ts files. */
-    "baseUrl": ".",
+    "noImplicitAny": true, 
+    "skipLibCheck": true, 
+    "baseUrl": "./src",
     "paths": {
-      "@components/*": [
-        "./src/components/*"
+      "@assets/*": [
+        "assets/*"
       ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+     
     },      
   }
 }
