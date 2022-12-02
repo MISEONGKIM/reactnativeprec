@@ -15,10 +15,15 @@
       "@components/*": [
         "components/*"
       ],
+      "@navigation/*" : [
+        "navigation/*"
+      ],
       "@pages/*": [
         "pages/*"
       ],
-     
-    },      
+      "@utils/*": [
+        "utils/*"
+      ]
+    }
   }
 }
