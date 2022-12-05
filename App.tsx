@@ -9,19 +9,19 @@
  */
 
 import React from 'react';
-import {SafeAreaView} from 'react-native';
 
 import Header from '@components/header';
 import Bottom from '@components/bottom';
 import MainPage from '@pages/main';
+import {NavigationContainer} from '@react-navigation/native';
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <Header />
+    <NavigationContainer>
+      {/* <Header /> */}
       <MainPage />
-      <Bottom />
-    </SafeAreaView>
+      {/* <Bottom /> */}
+    </NavigationContainer>
   );
 };
 

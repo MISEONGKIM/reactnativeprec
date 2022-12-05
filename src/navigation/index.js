@@ -1,2 +1,2 @@
 export * from './top_tab';
-export * from './screen';
+export * from './type';
