@@ -5,7 +5,6 @@
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Completeness */
-    "noImplicitAny": true, 
     "skipLibCheck": true, 
     "baseUrl": "./src",
     "paths": {
@@ -21,10 +20,16 @@
       "@components/*": [
         "components/*"
       ],
+      "@hooks": [
+        "hooks"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
       "@navigation" : [
         "navigation"
       ],
-      "navigation/*" : [
+      "@navigation/*" : [
         "navigation/*"
       ],
       "@pages": [

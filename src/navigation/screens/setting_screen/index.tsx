@@ -1,10 +1,10 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-export const SecondPage = () => {
+export const SettingScreen = () => {
   return (
     <View>
-      <Text>SecondPage</Text>
+      <Text>SettingScreen</Text>
     </View>
   );
 };

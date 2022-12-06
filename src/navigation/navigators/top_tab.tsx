@@ -1,26 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {ScreenType} from '../type';
+import {DefaultScreenType} from '../type';
 
-const TopTabNavigator = createMaterialTopTabNavigator();
-
-export const TopTab = ({
+export const TopTab = <T extends DefaultScreenType>({
+  Navigation,
   initialRouteName,
   screens,
 }: {
+  Navigation: any;
   initialRouteName: string;
-  screens: ScreenType[];
+  screens: T[];
 }) => (
-  <TopTabNavigator.Navigator initialRouteName={initialRouteName}>
+  <Navigation.Navigator initialRouteName={initialRouteName}>
     {screens.map((screen, i) => (
-      <TopTabNavigator.Screen
+      <Navigation.Screen
         key={'TopTab' + i}
         name={screen.name}
         component={screen.Component}
       />
     ))}
-  </TopTabNavigator.Navigator>
+  </Navigation.Navigator>
 );
 
 /*런타임 시 변화될 거 같은 값들만 proptypes에 추가하면 될듯  */

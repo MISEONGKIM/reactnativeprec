@@ -1,12 +1,10 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-const Header = () => {
+export const Header = ({title}: {title: string}) => {
   return (
     <View>
-      <Text>Header</Text>
+      <Text>{title}</Text>
     </View>
   );
 };
-
-export default Header;
