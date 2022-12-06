@@ -10,18 +10,18 @@
 
 import React from 'react';
 
-import Header from '@components/header';
-import Bottom from '@components/bottom';
-import MainPage from '@pages/main';
 import {NavigationContainer} from '@react-navigation/native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+
+import {appScreens, Stack} from '@navigation';
 
 const App = () => {
   return (
+    // <SafeAreaView>
     <NavigationContainer>
-      {/* <Header /> */}
-      <MainPage />
-      {/* <Bottom /> */}
+      <Stack screens={appScreens} />
     </NavigationContainer>
+    // </SafeAreaView>
   );
 };
 

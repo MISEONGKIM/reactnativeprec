@@ -9,17 +9,32 @@
     "skipLibCheck": true, 
     "baseUrl": "./src",
     "paths": {
+      "@assets": [
+        "assets"
+      ],
       "@assets/*": [
         "assets/*"
+      ],
+      "@components": [
+        "components"
       ],
       "@components/*": [
         "components/*"
       ],
-      "@navigation/*" : [
+      "@navigation" : [
+        "navigation"
+      ],
+      "navigation/*" : [
         "navigation/*"
+      ],
+      "@pages": [
+        "pages"
       ],
       "@pages/*": [
         "pages/*"
+      ],
+      "@utils": [
+        "utils"
       ],
       "@utils/*": [
         "utils/*"

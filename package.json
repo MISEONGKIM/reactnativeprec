@@ -12,10 +12,13 @@
   "dependencies": {
     "@react-navigation/material-top-tabs": "^6.4.0",
     "@react-navigation/native": "^6.0.16",
+    "@react-navigation/native-stack": "^6.9.4",
     "@types/prop-types": "^15.7.5",
     "react": "18.1.0",
     "react-native": "0.70.6",
     "react-native-pager-view": "^6.1.2",
+    "react-native-safe-area-context": "^4.4.1",
+    "react-native-screens": "^3.18.2",
     "react-native-tab-view": "^3.3.2"
   },
   "devDependencies": {
