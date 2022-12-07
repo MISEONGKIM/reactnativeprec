@@ -1,1 +1,1 @@
-export * from './univ_flat_list';
+export * from './vertical_flat_list';

@@ -1,10 +1,10 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-export const Bottom = () => {
+export const SecondPageCardList = () => {
   return (
     <View>
-      <Text>Bottom</Text>
+      <Text>SecondPageCardList</Text>
     </View>
   );
 };

@@ -1,10 +1,10 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-export const Header = ({title}: {title: string}) => {
+export const UnivInfoCard = () => {
   return (
     <View>
-      <Text>{title}</Text>
+      <Text>UnivInfoCard</Text>
     </View>
   );
 };

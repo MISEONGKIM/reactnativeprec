@@ -1,2 +1,2 @@
-export * from './header';
-export * from './bottom';
+export * from './cards';
+export * from './lists';
