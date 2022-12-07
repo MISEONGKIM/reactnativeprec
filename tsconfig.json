@@ -32,12 +32,6 @@
       "@navigation/*" : [
         "navigation/*"
       ],
-      "@pages": [
-        "pages"
-      ],
-      "@pages/*": [
-        "pages/*"
-      ],
       "@utils": [
         "utils"
       ],

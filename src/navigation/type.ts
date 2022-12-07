@@ -9,7 +9,7 @@ export type RootStackParamList = {
   Setting: undefined;
 };
 export type RootScreenType = {
-  name: Extract<keyof RootStackParamList, string>;
+  name: keyof RootStackParamList & string;
   Component: React.ComponentType;
   options?: NativeStackNavigationOptions;
 };
@@ -19,7 +19,7 @@ export type MainTabParamList = {
   Second: undefined;
 };
 export type MainScreenType = {
-  name: Extract<keyof MainTabParamList, string>;
+  name: keyof MainTabParamList & string;
   Component: Element;
   options?: MaterialTopTabNavigationOptions;
 };

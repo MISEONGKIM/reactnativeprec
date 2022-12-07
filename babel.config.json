@@ -10,7 +10,6 @@
           "@components": "./src/components",
           "@hooks": "./src/hooks",
           "@navigation": "./src/navigation",
-          "@pages": "./src/pages",
           "@utils": "./src/utils"
         }
       }

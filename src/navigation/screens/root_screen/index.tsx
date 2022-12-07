@@ -11,8 +11,9 @@ import {SettingScreen} from '../setting_screen';
 import {Button} from 'react-native';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Stack} from '@navigation/navigators';
 
-const StackNavigator = createNativeStackNavigator<RootStackParamList>();
+const Navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
 export const RootScreen = () => {
@@ -25,7 +26,9 @@ export const RootScreen = () => {
         headerTitleAlign: 'center',
         headerRight: () => (
           <Button
-            onPress={() => navigationRef.navigate('Setting')}
+            onPress={() => {
+              navigationRef.navigate('Setting');
+            }}
             title="Info"
             color="#333"
           />
@@ -47,17 +50,8 @@ export const RootScreen = () => {
     },
   ];
   return (
-    <NavigationContainer>
-      <StackNavigator.Navigator>
-        {screens.map((screen, i) => (
-          <StackNavigator.Screen
-            key={'Stack' + i}
-            name={screen.name}
-            component={screen.Component}
-            options={screen.options}
-          />
-        ))}
-      </StackNavigator.Navigator>
+    <NavigationContainer ref={navigationRef}>
+      <Stack<RootScreenType> Navigator={Navigator} screens={screens} />
     </NavigationContainer>
   );
 };
