@@ -7,9 +7,12 @@
         "root": ["./src"],
         "alias": {
           "@assets": "./src/assets",
+          "@constants": "./src/constants",
           "@components": "./src/components",
           "@hooks": "./src/hooks",
           "@navigation": "./src/navigation",
+          "@redux/*": "./src/redux",
+          "@ui": "./src/ui",
           "@utils": "./src/utils"
         }
       }
