@@ -4,7 +4,11 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import {TopTab} from '@navigation/navigators';
 import {FirstScreen} from '../first_screen';
 import {SecondScreen} from '../second_screen';
-import {MainScreenType, MainTabParamList} from '@navigation/type';
+import {
+  MainTabNavigator,
+  MainScreenType,
+  MainTabParamList,
+} from '@navigation/type';
 
 const navigator = createMaterialTopTabNavigator<MainTabParamList>();
 
@@ -17,7 +21,7 @@ export const MainScreen = () => {
     [],
   );
   return (
-    <TopTab<MainScreenType>
+    <TopTab<MainTabNavigator, MainScreenType>
       Navigation={navigator}
       initialRouteName={'First'}
       screens={screens}

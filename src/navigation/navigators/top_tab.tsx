@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {DefaultScreenType} from '../type';
+import {DefaultScreenType, NavigatorType} from '../type';
 
-export const TopTab = <T extends DefaultScreenType>({
+export const TopTab = <T1 extends NavigatorType, T2 extends DefaultScreenType>({
   Navigation,
   initialRouteName,
   screens,
 }: {
-  Navigation: any;
+  Navigation: T1;
   initialRouteName: string;
-  screens: T[];
+  screens: T2[];
 }) => (
   <Navigation.Navigator initialRouteName={initialRouteName}>
     {screens.map((screen, i) => (

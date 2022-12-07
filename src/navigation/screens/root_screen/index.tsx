@@ -4,7 +4,11 @@ import {
   NavigationContainer,
 } from '@react-navigation/native';
 
-import {RootStackParamList, RootScreenType} from '@navigation/type';
+import {
+  RootStackNavigator,
+  RootStackParamList,
+  RootScreenType,
+} from '@navigation/type';
 
 import {MainScreen} from '../main_screen';
 import {SettingScreen} from '../setting_screen';
@@ -13,7 +17,7 @@ import {Button} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Stack} from '@navigation/navigators';
 
-const Navigator = createNativeStackNavigator<RootStackParamList>();
+const navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
 export const RootScreen = () => {
@@ -51,7 +55,10 @@ export const RootScreen = () => {
   ];
   return (
     <NavigationContainer ref={navigationRef}>
-      <Stack<RootScreenType> Navigator={Navigator} screens={screens} />
+      <Stack<RootStackNavigator, RootScreenType>
+        Navigator={navigator}
+        screens={screens}
+      />
     </NavigationContainer>
   );
 };
