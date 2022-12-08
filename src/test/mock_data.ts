@@ -1,4 +1,4 @@
-export const secondPageList = [
+export const secondPageList: SecondPageListType[] = [
   {
     univName: 'First Item',
     ipsiYear: '2023',
@@ -21,3 +21,11 @@ export const secondPageList = [
     endDate: '2022-02-21',
   },
 ];
+
+export interface SecondPageListType {
+  univName: string;
+  ipsiYear: string;
+  ipsigubun: string;
+  startDate: string;
+  endDate: string;
+}

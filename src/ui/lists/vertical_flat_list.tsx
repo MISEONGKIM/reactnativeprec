@@ -4,24 +4,19 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 
 const _VerticalFlatList = styled.FlatList`
-  margin-top: ${StatusBar.currentHeight} || 0;
+  margintop: ${StatusBar.currentHeight} || 0;
 `;
 
 export const VerticalFlatList = ({
   data,
-  id,
-  renderItem,
+  RenderItem,
 }: {
   data: Record<string, any>[];
-  id: string;
-  renderItem: React.Component;
+  RenderItem: Element;
 }) => {
-  return (
-    <_VerticalFlatList data={data} renderItem={renderItem} keyExtractor={id} />
-  );
+  return <_VerticalFlatList data={data} renderItem={RenderItem} />;
 };
-
+/*어떤 array 가 올지 알고 ?  */
 VerticalFlatList.prototype = {
   data: PropTypes.array.isRequired,
-  id: PropTypes.string.isRequired,
 };

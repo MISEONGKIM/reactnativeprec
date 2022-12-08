@@ -1,10 +1,13 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
+import {SearchView, SecondPageCardList, SwitchView} from '@components';
 
 export const SecondScreen = () => {
   return (
     <View>
-      <Text>SecondScreen</Text>
+      <SearchView />
+      <SwitchView />
+      <SecondPageCardList />
     </View>
   );
 };

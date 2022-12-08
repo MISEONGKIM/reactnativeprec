@@ -1,10 +1,13 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
+import {VerticalFlatList} from '@ui/lists';
+import {secondPageList} from '@test/mock_data';
+import {UnivInfoCard} from '@components';
 
 export const SecondPageCardList = () => {
   return (
     <View>
-      <Text>SecondPageCardList</Text>
+      <VerticalFlatList data={secondPageList} RenderItem={UnivInfoCard} />
     </View>
   );
 };
