@@ -7,7 +7,7 @@ export const FirstScreen = () => {
   return (
     <View>
       <SearchView />
-      <SwitchView />
+      <SwitchView text="첫번째 시험" />
       <Text>FirstScreen</Text>
     </View>
   );

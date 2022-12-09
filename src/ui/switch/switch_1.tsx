@@ -1,6 +1,9 @@
 import React from 'react';
-import {Switch} from 'react-native';
+import styled from 'styled-components/native';
 
+const _Switch1 = styled.Switch`
+  width: 50px;
+`;
 export const Switch1 = ({
   isEnabled,
   onValueChange,
@@ -9,7 +12,7 @@ export const Switch1 = ({
   onValueChange: (value: boolean) => void;
 }) => {
   return (
-    <Switch
+    <_Switch1
       value={isEnabled}
       onValueChange={onValueChange}
       trackColor={{false: '#767577', true: '#81b0ff'}}

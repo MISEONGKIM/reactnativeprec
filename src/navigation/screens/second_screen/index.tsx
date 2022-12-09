@@ -6,7 +6,7 @@ export const SecondScreen = () => {
   return (
     <View>
       <SearchView />
-      <SwitchView />
+      <SwitchView text="두번째 시험" />
       <SecondPageCardList />
     </View>
   );
