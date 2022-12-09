@@ -8,12 +8,12 @@ const _SwitchView = styled.View`
   padding: 5px;
   border-width: 1px;
 `;
-
 export const SwitchView = () => {
-  const state = useSwitch();
+  const {isEnabled, toggleSwitch} = useSwitch();
+
   return (
     <_SwitchView>
-      <Switch1 isEnabled={state.isEnabled} onValueChange={state.toggleSwitch} />
+      <Switch1 isEnabled={isEnabled} onValueChange={toggleSwitch} />
     </_SwitchView>
   );
 };
