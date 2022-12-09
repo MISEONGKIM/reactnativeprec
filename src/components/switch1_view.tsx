@@ -1,7 +1,6 @@
 import {useSwitch} from '@hooks';
 import {Switch1} from '@ui/switch';
 import React from 'react';
-import {Text} from 'react-native';
 import styled from 'styled-components/native';
 
 const _SwitchView = styled.View`

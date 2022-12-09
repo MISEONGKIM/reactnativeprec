@@ -20,7 +20,7 @@ export interface RootStackParamList extends ParamListBase {
   Main: undefined;
   Setting: undefined;
 }
-export type RootScreenType = ScreenType<
+export type RootStackScreenType = ScreenType<
   RootStackParamList,
   NativeStackNavigationOptions
 >;
@@ -30,12 +30,13 @@ export interface MainTabParamList extends ParamListBase {
   First: undefined;
   Second: undefined;
 }
-export type MainScreenType = ScreenType<
+export type MainTabScreenType = ScreenType<
   MainTabParamList,
   MaterialTopTabNavigationOptions
 >;
 
-export type NavigatorType =
-  | ReturnType<typeof createNativeStackNavigator>
-  | ReturnType<typeof createMaterialTopTabNavigator>;
-export type DefaultScreenType = RootScreenType | MainScreenType;
+export type StackNavigatorType = RootStackNavigator;
+export type StackScreenType = RootStackScreenType;
+
+export type TabNavigatorType = MainTabNavigator;
+export type TabScreenType = MainTabScreenType;

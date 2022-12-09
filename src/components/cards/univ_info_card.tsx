@@ -2,6 +2,7 @@ import {Text, View} from 'react-native';
 import React from 'react';
 import styled from 'styled-components/native';
 import type {SecondPageListType} from '@test/mock_data';
+import {PressableBGRed} from '@ui/pressable_red';
 
 const _CardView = styled.View`
   flex: 1;
@@ -23,9 +24,14 @@ export const UnivInfoCard = ({item}: {item: SecondPageListType}) => {
     (key, i) => <Text key={'univInfoCard' + i}>{item[key]}</Text>,
   );
   return (
-    <_CardView>
-      <_Image source={require('@assets/images/univ.png')} />
-      <View>{itemText}</View>
-    </_CardView>
+    <PressableBGRed
+      onPress={() => {
+        throw new Error('Function not implemented.');
+      }}>
+      <_CardView>
+        <_Image source={require('@assets/images/univ.png')} />
+        <View>{itemText}</View>
+      </_CardView>
+    </PressableBGRed>
   );
 };

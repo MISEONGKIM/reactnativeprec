@@ -1,7 +1,10 @@
 import React from 'react';
-import {DefaultScreenType, NavigatorType} from '@navigation/type';
+import {StackScreenType, StackNavigatorType} from '@navigation/type';
 
-export const Stack = <T1 extends NavigatorType, T2 extends DefaultScreenType>({
+export const Stack = <
+  T1 extends StackNavigatorType,
+  T2 extends StackScreenType,
+>({
   Navigator,
   screens,
 }: {

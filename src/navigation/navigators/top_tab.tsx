@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {DefaultScreenType, NavigatorType} from '../type';
+import {TabScreenType, TabNavigatorType} from '../type';
 
-export const TopTab = <T1 extends NavigatorType, T2 extends DefaultScreenType>({
+export const TopTab = <T1 extends TabNavigatorType, T2 extends TabScreenType>({
   Navigation,
   initialRouteName,
   screens,
@@ -11,7 +11,9 @@ export const TopTab = <T1 extends NavigatorType, T2 extends DefaultScreenType>({
   initialRouteName: string;
   screens: T2[];
 }) => (
-  <Navigation.Navigator initialRouteName={initialRouteName}>
+  <Navigation.Navigator
+    initialRouteName={initialRouteName}
+    screenOptions={{swipeEnabled: false}}>
     {screens.map((screen, i) => (
       <Navigation.Screen
         key={'TopTab' + i}
