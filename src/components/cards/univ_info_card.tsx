@@ -1,8 +1,8 @@
-import {Text, View} from 'react-native';
+import {Alert, Text, View} from 'react-native';
 import React from 'react';
 import styled from 'styled-components/native';
 import type {SecondPageListType} from '@test/mock_data';
-import {PressableBGRed} from '@ui/pressable_red';
+import {RightToLeftSwipe} from '@ui/right_to_left_swipe';
 
 const _CardView = styled.View`
   flex: 1;
@@ -19,19 +19,24 @@ const _Image = styled.Image`
   margin-right: 10px;
 `;
 
+const RightSwipe = () => {
+  return <Text>삭제</Text>;
+};
+
 export const UnivInfoCard = ({item}: {item: SecondPageListType}) => {
   const itemText = (Object.keys(item) as Array<keyof SecondPageListType>).map(
     (key, i) => <Text key={'univInfoCard' + i}>{item[key]}</Text>,
   );
   return (
-    <PressableBGRed
-      onPress={() => {
-        throw new Error('Function not implemented.');
-      }}>
+    <RightToLeftSwipe
+      onSwipeableRightOpen={function (): void {
+        Alert.alert(item.univName + '삭제했음 ! ');
+      }}
+      renderRightActions={<RightSwipe />}>
       <_CardView>
         <_Image source={require('@assets/images/univ.png')} />
         <View>{itemText}</View>
       </_CardView>
-    </PressableBGRed>
+    </RightToLeftSwipe>
   );
 };
