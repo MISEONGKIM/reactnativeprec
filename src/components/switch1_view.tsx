@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 
 const _SwitchView = styled.View`
   justify-content: flex-end;
+  flex-direction: row;
   padding: 5px;
   border-width: 1px;
 `;
