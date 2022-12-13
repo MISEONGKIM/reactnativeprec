@@ -1,2 +1,2 @@
 export * from './stack';
-export * from './top_tab';
+export * from './tab';

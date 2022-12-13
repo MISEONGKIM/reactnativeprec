@@ -12,7 +12,7 @@ export const VerticalFlatList = ({
   RenderItem,
 }: {
   data: Record<string, any>[];
-  RenderItem: Element;
+  RenderItem: any; //일단 보류
 }) => {
   return <_VerticalFlatList data={data} renderItem={RenderItem} />;
 };

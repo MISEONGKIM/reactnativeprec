@@ -38,8 +38,7 @@ export const RightToLeftSwipe = ({
   const panResponder = useRef(
     PanResponder.create({
       onMoveShouldSetPanResponder: (evt, gestureState) => {
-        const {dx} = gestureState;
-        return dx < 0;
+        return gestureState.dx < 0;
       },
       onPanResponderMove: (evt, gestureState) => {
         const {dx, moveY, y0} = gestureState;

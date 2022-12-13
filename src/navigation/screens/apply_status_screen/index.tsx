@@ -1,10 +1,10 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-export const SettingScreen = () => {
+export const ApplyStatusScreen = () => {
   return (
     <View>
-      <Text>SettingScreen</Text>
+      <Text>ApplyStatusScreen</Text>
     </View>
   );
 };

@@ -7,12 +7,13 @@ import {
 import {
   RootStackNavigator,
   RootStackParamList,
-  RootScreenType,
+  RootStackScreenType,
 } from '@navigation/type';
+import {Button} from 'react-native';
 
 import {MainScreen} from '../main_screen';
-import {SettingScreen} from '../setting_screen';
-import {Button} from 'react-native';
+import {MyPageScreen} from '../my_page_screen';
+import {ApplyStatusScreen} from '../apply_status_screen';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Stack} from '@navigation/navigators';
@@ -21,7 +22,7 @@ const navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
 export const RootScreen = () => {
-  const screens: RootScreenType[] = [
+  const screens: RootStackScreenType[] = [
     {
       name: 'Main',
       Component: MainScreen,
@@ -40,8 +41,21 @@ export const RootScreen = () => {
       },
     },
     {
-      name: 'Setting',
-      Component: SettingScreen,
+      name: 'ApplyStatus',
+      Component: ApplyStatusScreen,
+      options: {
+        headerRight: () => (
+          <Button
+            onPress={() => navigationRef.goBack()}
+            title="Back"
+            color="#333"
+          />
+        ),
+      },
+    },
+    {
+      name: 'MyPage',
+      Component: MyPageScreen,
       options: {
         headerRight: () => (
           <Button
@@ -55,7 +69,7 @@ export const RootScreen = () => {
   ];
   return (
     <NavigationContainer ref={navigationRef}>
-      <Stack<RootStackNavigator, RootScreenType>
+      <Stack<RootStackNavigator, RootStackScreenType>
         Navigator={navigator}
         screens={screens}
       />
