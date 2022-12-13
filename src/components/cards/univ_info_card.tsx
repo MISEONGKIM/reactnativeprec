@@ -5,7 +5,6 @@ import type {SecondPageListType} from '@test/mock_data';
 import {RightToLeftSwipe} from '@ui/right_to_left_swipe';
 
 const _CardView = styled.View`
-  flex: 1;
   flex-direction: row;
   justify-content: flex-start;
   margin: 10px;
