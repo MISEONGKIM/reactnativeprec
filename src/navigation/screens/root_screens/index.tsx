@@ -4,19 +4,15 @@ import {
   NavigationContainer,
 } from '@react-navigation/native';
 
-import {
-  RootStackNavigator,
-  RootStackParamList,
-  RootStackScreenType,
-} from '@navigation/type';
+import {RootStackParamList, RootStackScreenType} from '@navigation/type';
 import {Button} from 'react-native';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Stack} from '@navigation/navigators';
+
 import BottomScreen from '../bottom_screens';
 import {AlramScreen, TicketScreen} from '../top_screens';
 
-const navigator = createNativeStackNavigator<RootStackParamList>();
+const Navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
 export const RootScreen = () => {
@@ -68,10 +64,16 @@ export const RootScreen = () => {
   ];
   return (
     <NavigationContainer ref={navigationRef}>
-      <Stack<RootStackNavigator, RootStackScreenType>
-        Navigator={navigator}
-        screens={screens}
-      />
+      <Navigator.Navigator>
+        {screens.map((screen, i) => (
+          <Navigator.Screen
+            key={'Stack' + i}
+            name={screen.name}
+            component={screen.Component}
+            options={screen.options}
+          />
+        ))}
+      </Navigator.Navigator>
     </NavigationContainer>
   );
 };

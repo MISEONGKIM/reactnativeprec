@@ -1,17 +1,12 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Tab} from '@navigation/navigators';
-import {
-  BottomTabNavigator,
-  BottomTabParamList,
-  BottomTabScreenType,
-} from '@navigation/type';
+import {BottomTabParamList, BottomTabScreenType} from '@navigation/type';
 
-import MainScreen from '../appy_status_screens';
-import ApplyStatusScreen from './main_screen';
+import ApplyStatusScreen from '../appy_status_screens';
+import MainScreen from './main_screen';
 import MyPageScreen from './my_pages_screen';
 
-const bottomTabnavigator = createBottomTabNavigator<BottomTabParamList>();
+const Navigation = createBottomTabNavigator<BottomTabParamList>();
 
 const BottomScreen = () => {
   const screens: BottomTabScreenType[] = [
@@ -29,11 +24,15 @@ const BottomScreen = () => {
     },
   ];
   return (
-    <Tab<BottomTabNavigator, BottomTabScreenType>
-      Navigation={bottomTabnavigator}
-      initialRouteName={'Main'}
-      screens={screens}
-    />
+    <Navigation.Navigator initialRouteName={'Main'}>
+      {screens.map((screen, i) => (
+        <Navigation.Screen
+          key={'bottomtap' + i}
+          name={screen.name}
+          component={screen.Component}
+        />
+      ))}
+    </Navigation.Navigator>
   );
 };
 

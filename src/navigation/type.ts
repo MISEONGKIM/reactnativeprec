@@ -1,22 +1,15 @@
 import React from 'react';
-import {
-  createNativeStackNavigator,
-  type NativeStackNavigationOptions,
-} from '@react-navigation/native-stack';
-import {
-  createMaterialTopTabNavigator,
-  type MaterialTopTabNavigationOptions,
-} from '@react-navigation/material-top-tabs';
 import {ParamListBase} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
+import {MaterialTopTabNavigationOptions} from '@react-navigation/material-top-tabs';
+import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
 
-type ScreenType<T, T2> = {
-  name: keyof T & string;
+interface ScreenType<T, T2> {
+  name: keyof T;
   Component: React.ComponentType;
   options?: T2;
-};
+}
 
-export type RootStackNavigator = ReturnType<typeof createNativeStackNavigator>;
 export interface RootStackParamList extends ParamListBase {
   Main: undefined;
   ApplyStatus: undefined;
@@ -27,7 +20,6 @@ export type RootStackScreenType = ScreenType<
   NativeStackNavigationOptions
 >;
 
-export type TopTabNavigator = ReturnType<typeof createMaterialTopTabNavigator>;
 export interface TopTabParamList extends ParamListBase {
   First: undefined;
   Second: undefined;
@@ -37,7 +29,6 @@ export type TopTabScreenType = ScreenType<
   MaterialTopTabNavigationOptions
 >;
 
-export type BottomTabNavigator = ReturnType<typeof createBottomTabNavigator>;
 export interface BottomTabParamList extends ParamListBase {
   Bottom1: undefined;
   Bottom2: undefined;
@@ -45,11 +36,5 @@ export interface BottomTabParamList extends ParamListBase {
 }
 export type BottomTabScreenType = ScreenType<
   BottomTabParamList,
-  BottomTabNavigator
+  BottomTabNavigationOptions
 >;
-
-export type StackNavigatorType = RootStackNavigator;
-export type StackScreenType = RootStackScreenType;
-
-export type TabNavigatorType = TopTabNavigator | BottomTabNavigator;
-export type TabScreenType = TopTabScreenType | BottomTabScreenType;

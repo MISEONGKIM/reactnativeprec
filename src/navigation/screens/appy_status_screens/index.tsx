@@ -1,15 +1,10 @@
 import React, {useMemo} from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {Tab} from '@navigation/navigators';
 import FirstScreen from './first_screen';
 import SecondScreen from './second_screen';
-import {
-  TopTabNavigator,
-  TopTabScreenType,
-  TopTabParamList,
-} from '@navigation/type';
+import {TopTabScreenType, TopTabParamList} from '@navigation/type';
 
-const topTabNavigator = createMaterialTopTabNavigator<TopTabParamList>();
+const Navigation = createMaterialTopTabNavigator<TopTabParamList>();
 
 const ApplyStatusScreen = () => {
   const screens: TopTabScreenType[] = useMemo(
@@ -21,12 +16,15 @@ const ApplyStatusScreen = () => {
   );
 
   return (
-    <Tab<TopTabNavigator, TopTabScreenType>
-      // option={{swipeEnabled: false}} 일단패스
-      Navigation={topTabNavigator}
-      initialRouteName={'First'}
-      screens={screens}
-    />
+    <Navigation.Navigator initialRouteName={'First'}>
+      {screens.map((screen, i) => (
+        <Navigation.Screen
+          key={'toptap' + i}
+          name={screen.name}
+          component={screen.Component}
+        />
+      ))}
+    </Navigation.Navigator>
   );
 };
 
