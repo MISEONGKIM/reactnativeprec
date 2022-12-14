@@ -1,8 +1,6 @@
 import React, {useMemo} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Tab} from '@navigation/navigators';
-import {FirstScreen} from '../first_screen';
-import {SecondScreen} from '../second_screen';
 import {
   MainBottomTabNavigator,
   MainBottomTabParamList,
@@ -12,13 +10,7 @@ import {
 const bottomTabnavigator = createBottomTabNavigator<MainBottomTabParamList>();
 
 export const BottomTab = () => {
-  const screens: MainBottomTabScreenType[] = useMemo(
-    () => [
-      {name: 'First', Component: FirstScreen},
-      {name: 'Second', Component: SecondScreen},
-    ],
-    [],
-  );
+  const screens: MainBottomTabScreenType[] = useMemo(() => [], []);
 
   return (
     <Tab<MainBottomTabNavigator, MainBottomTabScreenType>

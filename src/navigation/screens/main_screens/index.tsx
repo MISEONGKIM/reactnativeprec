@@ -1,8 +1,8 @@
 import React, {useMemo} from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {Tab} from '@navigation/navigators';
-import {FirstScreen} from '../first_screen';
-import {SecondScreen} from '../second_screen';
+import FirstScreen from './first_screen';
+import SecondScreen from './second_screen';
 import {
   MainTopTabNavigator,
   MainTopTabScreenType,

@@ -11,7 +11,7 @@
 import React from 'react';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {RootScreen} from '@navigation/screens/root_screen';
+import {RootScreen} from '@navigation/screens/root_screens';
 
 const App = () => {
   return (

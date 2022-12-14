@@ -3,7 +3,7 @@ import React from 'react';
 import {SearchView} from '@components/search_view';
 import {SwitchView} from '@components';
 
-export const FirstScreen = () => {
+const FirstScreen = () => {
   return (
     <View>
       <SearchView />
@@ -12,3 +12,5 @@ export const FirstScreen = () => {
     </View>
   );
 };
+
+export default FirstScreen;

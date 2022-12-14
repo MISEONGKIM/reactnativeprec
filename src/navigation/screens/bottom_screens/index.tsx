@@ -11,9 +11,7 @@ import {
 } from '@navigation/type';
 import {Button} from 'react-native';
 
-import {MainScreen} from '../main_screen';
-import {MyPageScreen} from '../my_page_screen';
-import {ApplyStatusScreen} from '../apply_status_screen';
+import {MainScreen} from '../main_screens';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Stack} from '@navigation/navigators';
@@ -21,7 +19,7 @@ import {Stack} from '@navigation/navigators';
 const navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
-export const RootScreen = () => {
+export const BottomScreen = () => {
   const screens: RootStackScreenType[] = [
     {
       name: 'Main',
@@ -41,8 +39,8 @@ export const RootScreen = () => {
       },
     },
     {
-      name: 'ApplyStatus',
-      Component: ApplyStatusScreen,
+      name: 'Ticket',
+      Component: TicketScreen,
       options: {
         headerRight: () => (
           <Button
@@ -54,8 +52,8 @@ export const RootScreen = () => {
       },
     },
     {
-      name: 'MyPage',
-      Component: MyPageScreen,
+      name: 'Alram',
+      Component: AlramScreen,
       options: {
         headerRight: () => (
           <Button
