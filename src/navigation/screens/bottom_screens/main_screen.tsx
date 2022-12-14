@@ -1,10 +1,12 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-export const ApplyStatusScreen = () => {
+const MainScreen = () => {
   return (
     <View>
-      <Text>ApplyStatusScreen</Text>
+      <Text>MainScreen</Text>
     </View>
   );
 };
+
+export default MainScreen;

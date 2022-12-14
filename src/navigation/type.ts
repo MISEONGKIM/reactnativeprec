@@ -27,15 +27,13 @@ export type RootStackScreenType = ScreenType<
   NativeStackNavigationOptions
 >;
 
-export type MainTopTabNavigator = ReturnType<
-  typeof createMaterialTopTabNavigator
->;
-export interface MainTopTabParamList extends ParamListBase {
+export type TopTabNavigator = ReturnType<typeof createMaterialTopTabNavigator>;
+export interface TopTabParamList extends ParamListBase {
   First: undefined;
   Second: undefined;
 }
-export type MainTopTabScreenType = ScreenType<
-  MainTopTabParamList,
+export type TopTabScreenType = ScreenType<
+  TopTabParamList,
   MaterialTopTabNavigationOptions
 >;
 
@@ -55,5 +53,5 @@ export type MainBottomTabScreenType = ScreenType<
 export type StackNavigatorType = RootStackNavigator;
 export type StackScreenType = RootStackScreenType;
 
-export type TabNavigatorType = MainTopTabNavigator | MainBottomTabNavigator;
-export type TabScreenType = MainTopTabScreenType | MainBottomTabScreenType;
+export type TabNavigatorType = TopTabNavigator | MainBottomTabNavigator;
+export type TabScreenType = TopTabScreenType | MainBottomTabScreenType;

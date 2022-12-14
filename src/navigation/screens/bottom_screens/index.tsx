@@ -1,76 +1,40 @@
 import React from 'react';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {Tab} from '@navigation/navigators';
 import {
-  createNavigationContainerRef,
-  NavigationContainer,
-} from '@react-navigation/native';
-
-import {
-  RootStackNavigator,
-  RootStackParamList,
-  RootStackScreenType,
+  MainBottomTabNavigator,
+  MainBottomTabParamList,
+  MainBottomTabScreenType,
 } from '@navigation/type';
-import {Button} from 'react-native';
 
-import {MainScreen} from '../main_screens';
+import MainScreen from '../appy_status_screens';
+import ApplyStatusScreen from './main_screen';
+import MyPageScreen from './my_pages_screen';
 
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Stack} from '@navigation/navigators';
+const bottomTabnavigator = createBottomTabNavigator<MainBottomTabParamList>();
 
-const navigator = createNativeStackNavigator<RootStackParamList>();
-const navigationRef = createNavigationContainerRef<RootStackParamList>();
-
-export const BottomScreen = () => {
-  const screens: RootStackScreenType[] = [
+const BottomScreen = () => {
+  const screens: MainBottomTabScreenType[] = [
+    {
+      name: 'ApplyStatus',
+      Component: ApplyStatusScreen,
+    },
     {
       name: 'Main',
       Component: MainScreen,
-      options: {
-        headerTitle: 'title',
-        headerTitleAlign: 'center',
-        headerRight: () => (
-          <Button
-            onPress={() => {
-              navigationRef.navigate('Setting');
-            }}
-            title="Info"
-            color="#333"
-          />
-        ),
-      },
     },
     {
-      name: 'Ticket',
-      Component: TicketScreen,
-      options: {
-        headerRight: () => (
-          <Button
-            onPress={() => navigationRef.goBack()}
-            title="Back"
-            color="#333"
-          />
-        ),
-      },
-    },
-    {
-      name: 'Alram',
-      Component: AlramScreen,
-      options: {
-        headerRight: () => (
-          <Button
-            onPress={() => navigationRef.goBack()}
-            title="Back"
-            color="#333"
-          />
-        ),
-      },
+      name: 'MyPage',
+      Component: MyPageScreen,
     },
   ];
   return (
-    <NavigationContainer ref={navigationRef}>
-      <Stack<RootStackNavigator, RootStackScreenType>
-        Navigator={navigator}
-        screens={screens}
-      />
-    </NavigationContainer>
+    <Tab<MainBottomTabNavigator, MainBottomTabScreenType>
+      Navigation={bottomTabnavigator}
+      initialRouteName={'Main'}
+      screens={screens}
+    />
   );
 };
+
+export default BottomScreen;

@@ -13,7 +13,7 @@ import {Button} from 'react-native';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Stack} from '@navigation/navigators';
-import {BottomScreen} from '../bottom_screens';
+import BottomScreen from '../bottom_screens';
 import {AlramScreen, TicketScreen} from '../top_screens';
 
 const navigator = createNativeStackNavigator<RootStackParamList>();
@@ -25,17 +25,18 @@ export const RootScreen = () => {
       name: 'Bottom',
       Component: BottomScreen,
       options: {
-        headerTitle: 'title',
-        headerTitleAlign: 'center',
-        headerRight: () => (
+        headerRight: () => [
           <Button
-            onPress={() => {
-              navigationRef.navigate('Setting');
-            }}
-            title="Info"
+            onPress={() => navigationRef.navigate('Ticket')}
+            title="Ticket"
             color="#333"
-          />
-        ),
+          />,
+          <Button
+            onPress={() => navigationRef.navigate('Alram')}
+            title="Alram"
+            color="#333"
+          />,
+        ],
       },
     },
     {

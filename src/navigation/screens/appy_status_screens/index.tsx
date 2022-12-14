@@ -4,15 +4,15 @@ import {Tab} from '@navigation/navigators';
 import FirstScreen from './first_screen';
 import SecondScreen from './second_screen';
 import {
-  MainTopTabNavigator,
-  MainTopTabScreenType,
-  MainTopTabParamList,
+  TopTabNavigator,
+  TopTabScreenType,
+  TopTabParamList,
 } from '@navigation/type';
 
-const topTabNavigator = createMaterialTopTabNavigator<MainTopTabParamList>();
+const topTabNavigator = createMaterialTopTabNavigator<TopTabParamList>();
 
-export const MainScreen = () => {
-  const screens: MainTopTabScreenType[] = useMemo(
+const ApplyStatusScreen = () => {
+  const screens: TopTabScreenType[] = useMemo(
     () => [
       {name: 'First', Component: FirstScreen},
       {name: 'Second', Component: SecondScreen},
@@ -21,7 +21,7 @@ export const MainScreen = () => {
   );
 
   return (
-    <Tab<MainTopTabNavigator, MainTopTabScreenType>
+    <Tab<TopTabNavigator, TopTabScreenType>
       // option={{swipeEnabled: false}} 일단패스
       Navigation={topTabNavigator}
       initialRouteName={'First'}
@@ -29,3 +29,5 @@ export const MainScreen = () => {
     />
   );
 };
+
+export default ApplyStatusScreen;
