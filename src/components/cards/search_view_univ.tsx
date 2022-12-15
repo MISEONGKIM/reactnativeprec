@@ -1,7 +1,7 @@
 import {Text} from 'react-native';
 import React from 'react';
 import styled from 'styled-components/native';
-import {UnivListType} from '@test/mock_data';
+import {InterviewListType} from '@test/mock_data';
 
 const _CardView = styled.View`
   flex-direction: row;
@@ -24,7 +24,7 @@ const _Image = styled.Image`
 
 const _h3 = styled.Text``;
 
-export const SearchViewUniv = ({item}: {item: UnivListType}) => {
+export const SearchViewUniv = ({item}: {item: InterviewListType}) => {
   return (
     <_CardView>
       <_Image source={require('@assets/images/univ.png')} />

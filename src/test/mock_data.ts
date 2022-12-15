@@ -1,4 +1,4 @@
-export const univList: UnivListType[] = [
+export const interviewList: InterviewListType[] = [
   {
     univName: 'First Item',
     ipsiYear: '2023',
@@ -25,7 +25,7 @@ export const univList: UnivListType[] = [
   },
 ];
 
-export interface UnivListType {
+export interface InterviewListType {
   univName: string;
   ipsiYear: string;
   ipsigubun: string;

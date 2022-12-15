@@ -1,7 +1,7 @@
 import {Alert, Text, View} from 'react-native';
 import React from 'react';
 import styled from 'styled-components/native';
-import type {UnivListType} from '@test/mock_data';
+import type {InterviewListType} from '@test/mock_data';
 import {RightToLeftSwipe} from '@ui/right_to_left_swipe';
 
 const _CardView = styled.View`
@@ -22,8 +22,8 @@ const RightSwipe = () => {
   return <Text>삭제</Text>;
 };
 
-export const SecondPageInterview = ({item}: {item: UnivListType}) => {
-  const itemText = (Object.keys(item) as Array<keyof UnivListType>).map(
+export const SecondPageInterview = ({item}: {item: InterviewListType}) => {
+  const itemText = (Object.keys(item) as Array<keyof InterviewListType>).map(
     (key, i) => <Text key={'univInfoCard' + i}>{item[key]}</Text>,
   );
   return (

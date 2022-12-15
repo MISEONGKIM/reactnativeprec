@@ -1,7 +1,8 @@
 import React from 'react';
 import {SearchInput} from '@ui/inputs';
 import styled from 'styled-components/native';
-import {SearchViewUnivList} from './lists';
+import {SearchViewInterviewList} from './lists';
+import {Link} from '@react-navigation/native';
 
 const _SerchView = styled.View`
   padding: 5px;
@@ -12,7 +13,8 @@ export const SearchView = () => {
   return (
     <_SerchView>
       <SearchInput />
-      <SearchViewUnivList />
+      <Link>전체보기</Link>
+      <SearchViewInterviewList />
     </_SerchView>
   );
 };
