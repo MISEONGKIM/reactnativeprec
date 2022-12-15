@@ -22,7 +22,9 @@ export const RootScreen = () => {
         headerRight: () => [
           <Button
             key={1}
-            onPress={() => navigationRef.navigate('Ticket')}
+            onPress={() =>
+              navigationRef.navigate('Ticket', {id: 'root에서 버튼클릭'})
+            }
             title="Ticket"
             color="#333"
           />,
@@ -37,7 +39,7 @@ export const RootScreen = () => {
     },
     {
       name: 'Ticket',
-      Component: TicketScreen,
+      Component: TicketScreen, //내일하자
       options: {
         headerRight: () => (
           <Button

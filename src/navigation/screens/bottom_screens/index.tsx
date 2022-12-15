@@ -24,7 +24,9 @@ const BottomScreen = () => {
     },
   ];
   return (
-    <Navigation.Navigator initialRouteName={'Main'}>
+    <Navigation.Navigator
+      initialRouteName={'Main'}
+      screenOptions={{headerShown: false}}>
       {screens.map((screen, i) => (
         <Navigation.Screen
           key={'bottomtap' + i}

@@ -1,1 +1,2 @@
-export * from './univ_info_card';
+export * from './second_page_interview';
+export * from './search_view_univ';
