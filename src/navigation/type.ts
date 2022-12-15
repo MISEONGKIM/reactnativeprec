@@ -1,40 +1,42 @@
-import React from 'react';
-import {ParamListBase} from '@react-navigation/native';
-import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
-import {MaterialTopTabNavigationOptions} from '@react-navigation/material-top-tabs';
-import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
+import type {NavigatorScreenParams} from '@react-navigation/native';
+import type {NativeStackNavigationOptions} from '@react-navigation/native-stack';
+import type {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
+import type {MaterialTopTabNavigationOptions} from '@react-navigation/material-top-tabs';
 
-interface ScreenType<T, T2> {
+type ScreenType<T, T2> = {
   name: keyof T;
   Component: React.ComponentType;
   options?: T2;
-}
+};
 
-export interface RootStackParamList extends ParamListBase {
-  Main: undefined;
-  ApplyStatus: undefined;
-  MyPage: undefined;
-}
+export type RootStackParamList = {
+  Bottom: NavigatorScreenParams<BottomTabParamList>;
+  Ticket: undefined;
+  Alram: undefined;
+};
+
 export type RootStackScreenType = ScreenType<
   RootStackParamList,
   NativeStackNavigationOptions
 >;
 
-export interface TopTabParamList extends ParamListBase {
-  First: undefined;
-  Second: undefined;
-}
-export type TopTabScreenType = ScreenType<
-  TopTabParamList,
-  MaterialTopTabNavigationOptions
->;
+export type BottomTabParamList = {
+  Main: NavigatorScreenParams<TopTabParamList>;
+  ApplyStatus: undefined;
+  MyPage: undefined;
+};
 
-export interface BottomTabParamList extends ParamListBase {
-  Bottom1: undefined;
-  Bottom2: undefined;
-  Bottom3: undefined;
-}
 export type BottomTabScreenType = ScreenType<
   BottomTabParamList,
   BottomTabNavigationOptions
+>;
+
+export type TopTabParamList = {
+  First: undefined;
+  Second: undefined;
+};
+
+export type TopTabScreenType = ScreenType<
+  TopTabParamList,
+  MaterialTopTabNavigationOptions
 >;
