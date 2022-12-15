@@ -24,7 +24,7 @@ const _Image = styled.Image`
 
 const _h3 = styled.Text``;
 
-export const SearchViewUniv = ({item}: {item: InterviewListType}) => {
+export const SearchViewInterviewCard = ({item}: {item: InterviewListType}) => {
   return (
     <_CardView>
       <_Image source={require('@assets/images/univ.png')} />

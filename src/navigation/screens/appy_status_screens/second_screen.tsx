@@ -1,6 +1,6 @@
 import {View} from 'react-native';
 import React from 'react';
-import {SearchView, SecondPageInterviewList, SwitchView} from '@components';
+import {SearchView, SecondPageApplyItvList, SwitchView} from '@components';
 import {interviewList} from '@test/mock_data';
 
 const SecondScreen = () => {
@@ -9,7 +9,7 @@ const SecondScreen = () => {
     <View>
       <SearchView />
       <SwitchView text="두번째 시험" />
-      <SecondPageInterviewList data={data} />
+      <SecondPageApplyItvList data={data} />
     </View>
   );
 };

@@ -10,6 +10,7 @@ import {Button} from 'react-native';
 
 import BottomScreen from '../bottom_screens';
 import {AlramScreen, TicketScreen} from '../top_screens';
+import InterviewListScreen from '../appy_status_screens/interview_list_screen';
 
 const Navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();

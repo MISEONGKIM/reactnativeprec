@@ -22,7 +22,7 @@ const RightSwipe = () => {
   return <Text>삭제</Text>;
 };
 
-export const SecondPageInterview = ({item}: {item: InterviewListType}) => {
+export const SecondPageApplyItvCard = ({item}: {item: InterviewListType}) => {
   const itemText = (Object.keys(item) as Array<keyof InterviewListType>).map(
     (key, i) => <Text key={'univInfoCard' + i}>{item[key]}</Text>,
   );

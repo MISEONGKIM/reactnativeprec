@@ -13,7 +13,7 @@ export const SearchView = () => {
   return (
     <_SerchView>
       <SearchInput />
-      <Link>전체보기</Link>
+      <Link to={{screen: 'Ticket', params: {id: 'hey~'}}}>Ticket Link</Link>
       <SearchViewInterviewList />
     </_SerchView>
   );
