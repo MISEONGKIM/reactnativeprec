@@ -1,7 +1,20 @@
-import type {NavigatorScreenParams} from '@react-navigation/native';
-import type {NativeStackNavigationOptions} from '@react-navigation/native-stack';
-import type {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
-import type {MaterialTopTabNavigationOptions} from '@react-navigation/material-top-tabs';
+import type {
+  CompositeScreenProps,
+  NavigatorScreenParams,
+} from '@react-navigation/native';
+import type {
+  NativeStackScreenProps,
+  NativeStackNavigationOptions,
+} from '@react-navigation/native-stack';
+import type {
+  BottomTabScreenProps as TabScreenProps,
+  BottomTabNavigationOptions,
+} from '@react-navigation/bottom-tabs';
+
+import type {
+  MaterialTopTabScreenProps,
+  MaterialTopTabNavigationOptions,
+} from '@react-navigation/material-top-tabs';
 
 type ScreenType<T, T2> = {
   name: keyof T;
@@ -20,9 +33,12 @@ export type RootStackScreenType = ScreenType<
   NativeStackNavigationOptions
 >;
 
+export type RootStackScreenProps<T extends keyof RootStackParamList> =
+  NativeStackScreenProps<RootStackParamList, T>;
+
 export type BottomTabParamList = {
-  Main: NavigatorScreenParams<TopTabParamList>;
   ApplyStatus: undefined;
+  Main: NavigatorScreenParams<TopTabParamList>;
   MyPage: undefined;
 };
 
@@ -30,6 +46,11 @@ export type BottomTabScreenType = ScreenType<
   BottomTabParamList,
   BottomTabNavigationOptions
 >;
+export type BottomTabScreenProps<T extends keyof BottomTabParamList> =
+  CompositeScreenProps<
+    TabScreenProps<BottomTabParamList, T>,
+    RootStackScreenProps<keyof RootStackParamList>
+  >;
 
 export type TopTabParamList = {
   First: undefined;
@@ -40,3 +61,8 @@ export type TopTabScreenType = ScreenType<
   TopTabParamList,
   MaterialTopTabNavigationOptions
 >;
+export type TopTabScreenProps<T extends keyof TopTabParamList> =
+  CompositeScreenProps<
+    MaterialTopTabScreenProps<TopTabParamList, T>,
+    BottomTabScreenProps<keyof BottomTabParamList>
+  >;

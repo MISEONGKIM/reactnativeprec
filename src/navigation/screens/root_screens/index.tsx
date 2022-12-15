@@ -3,18 +3,16 @@ import {
   createNavigationContainerRef,
   NavigationContainer,
 } from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {RootStackParamList, RootStackScreenType} from '@navigation/type';
 import {Button} from 'react-native';
-
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import BottomScreen from '../bottom_screens';
 import {AlramScreen, TicketScreen} from '../top_screens';
 
 const Navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
-
 export const RootScreen = () => {
   const screens: RootStackScreenType[] = [
     {
@@ -23,11 +21,13 @@ export const RootScreen = () => {
       options: {
         headerRight: () => [
           <Button
+            key={1}
             onPress={() => navigationRef.navigate('Ticket')}
             title="Ticket"
             color="#333"
           />,
           <Button
+            key={2}
             onPress={() => navigationRef.navigate('Alram')}
             title="Alram"
             color="#333"
