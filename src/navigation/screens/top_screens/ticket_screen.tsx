@@ -5,7 +5,7 @@ import {RootStackScreenProps} from '@navigation/type';
 export const TicketScreen = ({route}: RootStackScreenProps<'Ticket'>) => {
   return (
     <View>
-      <Text>{route.params.id}</Text>
+      <Text>{route.params?.id ?? ''}</Text>
     </View>
   );
 };
