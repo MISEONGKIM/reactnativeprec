@@ -1,10 +1,11 @@
 import {View, Text} from 'react-native';
 import React from 'react';
+import {RootStackScreenProps} from '@navigation/type';
 
-export const TicketScreen = () => {
+export const TicketScreen = ({route}: RootStackScreenProps<'Ticket'>) => {
   return (
     <View>
-      <Text>TicketScreen</Text>
+      <Text>{route.params.id}</Text>
     </View>
   );
 };

@@ -24,7 +24,7 @@ type ScreenType<T, T2> = {
 
 export type RootStackParamList = {
   Bottom: NavigatorScreenParams<BottomTabParamList>;
-  Ticket: undefined;
+  Ticket: {id: string};
   Alram: undefined;
 };
 
