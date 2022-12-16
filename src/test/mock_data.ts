@@ -1,5 +1,6 @@
-export const interviewList: InterviewListType[] = [
+export const interviewListData: InterviewListType[] = [
   {
+    code: 1,
     univName: 'First Item',
     ipsiYear: '2023',
     ipsigubun: '수시모집',
@@ -8,6 +9,7 @@ export const interviewList: InterviewListType[] = [
     isCheck: true,
   },
   {
+    code: 2,
     univName: 'Second Item',
     ipsiYear: '2023',
     ipsigubun: '모의모집',
@@ -16,6 +18,7 @@ export const interviewList: InterviewListType[] = [
     isCheck: true,
   },
   {
+    code: 3,
     univName: 'Third Item',
     ipsiYear: '2023',
     ipsigubun: '수시모집',
@@ -26,10 +29,36 @@ export const interviewList: InterviewListType[] = [
 ];
 
 export interface InterviewListType {
+  code: number;
   univName: string;
   ipsiYear: string;
   ipsigubun: string;
   startDate: string;
   endDate: string;
   isCheck: boolean;
+}
+
+export const ticketListData: TicketType[] = [
+  {
+    univName: '대학명1',
+    selTypeName: '전형명1',
+    majorName: '모집단위명1',
+    indenfityNumber: '123',
+    name: '이름1',
+  },
+  {
+    univName: '대학명2',
+    selTypeName: '전형명2',
+    majorName: '모집단위명2',
+    indenfityNumber: '223',
+    name: '이름2',
+  },
+];
+
+export interface TicketType {
+  univName: string;
+  selTypeName: string;
+  majorName: string;
+  indenfityNumber: string;
+  name: string;
 }

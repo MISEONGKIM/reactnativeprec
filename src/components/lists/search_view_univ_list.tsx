@@ -1,12 +1,12 @@
 import React from 'react';
-import {HorizontalFlatList} from '@ui/lists/horizontal_flat_list';
+import {HorizontalFlatList} from '@ui/lists';
 import {SearchViewInterviewCard} from '@components';
-import {interviewList} from '@test/mock_data';
+import {interviewListData} from '@test/mock_data';
 
 export const SearchViewInterviewList = () => {
   return (
     <HorizontalFlatList
-      data={interviewList}
+      data={interviewListData}
       RenderItem={SearchViewInterviewCard}
     />
   );
