@@ -7,7 +7,7 @@ import {Link} from '@react-navigation/native';
 const FirstScreen = () => {
   return (
     <View>
-      <SearchView />
+      <SearchView tabTitle={'첫번째 면접'} />
       <SwitchView text="첫번째 시험" />
 
       <Link to={{screen: 'Ticket', params: {id: 'hey~'}}}>Ticket Link</Link>

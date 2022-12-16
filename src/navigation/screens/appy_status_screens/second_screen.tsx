@@ -7,7 +7,7 @@ const SecondScreen = () => {
   const data = interviewList.filter(item => item.isCheck);
   return (
     <View>
-      <SearchView />
+      <SearchView tabTitle={'두번째 면접'} />
       <SwitchView text="두번째 시험" />
       <SecondPageApplyItvList data={data} />
     </View>

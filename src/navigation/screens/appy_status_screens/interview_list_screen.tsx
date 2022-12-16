@@ -1,10 +1,13 @@
 import {View, Text} from 'react-native';
 import React from 'react';
+import {RootStackScreenProps} from '@navigation/type';
 
-const InterviewListScreen = () => {
+const InterviewListScreen = ({
+  route,
+}: RootStackScreenProps<'InterviewList'>) => {
   return (
     <View>
-      <Text>InterviewListScreen</Text>
+      <Text>{route.params?.title ?? ''}</Text>
     </View>
   );
 };

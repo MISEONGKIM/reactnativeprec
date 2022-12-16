@@ -64,6 +64,11 @@ export const RootScreen = () => {
         ),
       },
     },
+    {
+      name: 'InterviewList',
+      Component: InterviewListScreen,
+      options: {},
+    },
   ];
   return (
     <NavigationContainer ref={navigationRef}>

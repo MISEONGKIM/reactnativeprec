@@ -8,12 +8,18 @@ const _SerchView = styled.View`
   padding: 5px;
   border-bottom-width: 1px;
 `;
-
-export const SearchView = () => {
+const _LinkView = styled.View`
+  justify-content: flex-end;
+`;
+export const SearchView = ({tabTitle}: {tabTitle: string}) => {
   return (
     <_SerchView>
       <SearchInput />
-      <Link to={{screen: 'Ticket', params: {id: 'hey~'}}}>Ticket Link</Link>
+      <_LinkView>
+        <Link to={{screen: 'InterviewList', params: {title: tabTitle}}}>
+          전체보기
+        </Link>
+      </_LinkView>
       <SearchViewInterviewList />
     </_SerchView>
   );
