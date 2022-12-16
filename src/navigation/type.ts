@@ -24,8 +24,8 @@ type ScreenType<T, T2> = {
 };
 
 export type RootStackParamList = {
-  Bottom: NavigatorScreenParams<BottomTabParamList>;
   Ticket: {id: string};
+  Bottom: undefined;
   Alram: undefined;
   InterviewList: {title: string};
 };
@@ -40,7 +40,7 @@ export type RootStackScreenProps<T extends keyof RootStackParamList> =
 
 export type BottomTabParamList = {
   ApplyStatus: undefined;
-  Main: NavigatorScreenParams<TopTabParamList>;
+  Main: undefined;
   MyPage: undefined;
 };
 

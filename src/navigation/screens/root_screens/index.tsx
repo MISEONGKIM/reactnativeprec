@@ -17,6 +17,20 @@ const navigationRef = createNavigationContainerRef<RootStackParamList>();
 export const RootScreen = () => {
   const screens: RootStackScreenType[] = [
     {
+      name: 'Ticket',
+      Component: TicketScreen, //내일하자
+      options: {
+        headerRight: () => (
+          <Button
+            //onPress={() => navigationRef.goBack()}
+            onPress={() => navigationRef.navigate('Bottom')}
+            title="Back"
+            color="#333"
+          />
+        ),
+      },
+    },
+    {
       name: 'Bottom',
       Component: BottomScreen,
       options: {
@@ -38,19 +52,7 @@ export const RootScreen = () => {
         ],
       },
     },
-    {
-      name: 'Ticket',
-      Component: TicketScreen, //내일하자
-      options: {
-        headerRight: () => (
-          <Button
-            onPress={() => navigationRef.goBack()}
-            title="Back"
-            color="#333"
-          />
-        ),
-      },
-    },
+
     {
       name: 'Alram',
       Component: AlramScreen,
