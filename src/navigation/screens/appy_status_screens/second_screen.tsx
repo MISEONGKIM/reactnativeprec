@@ -1,10 +1,10 @@
 import {View} from 'react-native';
 import React from 'react';
 import {SearchView, SecondPageApplyItvList, SwitchView} from '@components';
-import {interviewList} from '@test/mock_data';
+import {interviewListData} from '@test/mock_data';
 
 const SecondScreen = () => {
-  const data = interviewList.filter(item => item.isCheck);
+  const data = interviewListData.filter(item => item.isCheck);
   return (
     <View>
       <SearchView tabTitle={'두번째 면접'} />

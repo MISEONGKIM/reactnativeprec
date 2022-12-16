@@ -23,9 +23,9 @@ const RightSwipe = () => {
 };
 
 export const SecondPageApplyItvCard = ({item}: {item: InterviewListType}) => {
-  const itemText = (Object.keys(item) as Array<keyof InterviewListType>).map(
-    (key, i) => <Text key={'univInfoCard' + i}>{item[key]}</Text>,
-  );
+  const itemText = (Object.keys(item) as Array<keyof InterviewListType>)
+    .filter(key => key !== 'code')
+    .map((key, i) => <Text key={'univInfoCard' + i}>{item[key]}</Text>);
   return (
     <RightToLeftSwipe
       onSwipeableRightOpen={function (): void {

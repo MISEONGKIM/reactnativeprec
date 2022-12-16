@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import {TicketType} from '@test/mock_data';
 const _CardView = styled.View`
   border-bottom-width: 1px;
-  background-color: #ffcad5;
+  // background-color: #ffcad5;
   height: ${Dimensions.get('window').height * 0.7}px;
   width: ${Dimensions.get('window').width * 0.95}px;
   margin: 10px;

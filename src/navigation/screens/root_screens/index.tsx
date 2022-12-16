@@ -14,6 +14,7 @@ import InterviewListScreen from '../appy_status_screens/interview_list_screen';
 
 const Navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
+
 export const RootScreen = () => {
   const screens: RootStackScreenType[] = [
     {
