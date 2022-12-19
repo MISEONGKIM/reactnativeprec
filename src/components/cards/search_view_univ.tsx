@@ -2,6 +2,7 @@ import {Text} from 'react-native';
 import React from 'react';
 import styled from 'styled-components/native';
 import {InterviewListType} from '@test/mock_data';
+import {H3} from '@ui/text';
 
 const _CardView = styled.View`
   flex-direction: row;
@@ -22,14 +23,12 @@ const _Image = styled.Image`
   margin-right: 10px;
 `;
 
-const _h3 = styled.Text``;
-
 export const SearchViewInterviewCard = ({item}: {item: InterviewListType}) => {
   return (
     <_CardView>
       <_Image source={require('@assets/images/univ.png')} />
       <_UnivInfoView>
-        <_h3>{item.univName}</_h3>
+        <H3>{item.univName}</H3>
         <Text>{item.ipsiYear}</Text>
         <Text>{item.ipsigubun}</Text>
       </_UnivInfoView>

@@ -2,6 +2,8 @@ import {Text, Dimensions} from 'react-native';
 import React from 'react';
 import styled from 'styled-components/native';
 import {TicketType} from '@test/mock_data';
+import {H2} from '@ui/text';
+
 const _CardView = styled.View`
   border-bottom-width: 1px;
   background-color: #ffcad5;
@@ -12,15 +14,10 @@ const _CardView = styled.View`
   border-radius: 10px;
 `;
 
-const _h2 = styled.Text`
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-`;
 export const TicketCard = ({item}: {item: TicketType}) => {
   return (
     <_CardView>
-      <_h2>{item.univName}</_h2>
+      <H2>{item.univName}</H2>
       <Text>{item.selTypeName}</Text>
       <Text>{item.majorName}</Text>
       <Text>{item.indenfityNumber}</Text>
