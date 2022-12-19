@@ -3,6 +3,7 @@ import {Modal, Portal} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {ModalStateType} from './type';
 
+/// 이걸로는 안되는건가 ?
 const _Modal = styled.Modal`
   background-color: #c8d7ff;
   padding: 20px;
