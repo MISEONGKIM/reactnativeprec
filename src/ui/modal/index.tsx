@@ -15,12 +15,18 @@ const containerStyle = {
   margin: 50,
 };
 
-const ModalView = (props: Partial<ModalStateType>, children: ReactNode) => {
+const ModalView = ({
+  children,
+  modalState,
+}: {
+  children: ReactNode;
+  modalState: Partial<ModalStateType>;
+}) => {
   return (
     <Portal>
       <Modal
-        visible={props.visible!}
-        onDismiss={props.hideModal}
+        visible={modalState.visible!}
+        onDismiss={modalState.hideModal}
         contentContainerStyle={containerStyle}>
         {children}
       </Modal>
