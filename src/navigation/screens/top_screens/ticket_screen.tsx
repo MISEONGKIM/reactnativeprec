@@ -1,7 +1,7 @@
 import {View, Text, Button} from 'react-native';
 import React from 'react';
 import {RootStackScreenProps} from '@navigation/type';
-import {SearchInput} from '@ui/inputs';
+import {UniveNameSearchInput} from '@ui/inputs';
 import {ticketListData} from '@test/mock_data';
 import {TicketList} from '@components';
 import {useModal} from '@hooks';
@@ -12,7 +12,7 @@ export const TicketScreen = ({route}: RootStackScreenProps<'Ticket'>) => {
   return (
     <View>
       <Text>{route.params?.id ?? ''}</Text>
-      <SearchInput />
+      <UniveNameSearchInput />
       <TicketList data={ticketListData} />
       <Button
         onPress={() => {

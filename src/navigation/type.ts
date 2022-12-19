@@ -1,7 +1,4 @@
-import type {
-  CompositeScreenProps,
-  NavigatorScreenParams,
-} from '@react-navigation/native';
+import type {CompositeScreenProps} from '@react-navigation/native';
 import type {
   NativeStackScreenProps,
   NativeStackNavigationOptions,
@@ -15,11 +12,11 @@ import type {
   MaterialTopTabScreenProps,
   MaterialTopTabNavigationOptions,
 } from '@react-navigation/material-top-tabs';
-import React from 'react';
+import {ReactNode} from 'react';
 
 type ScreenType<T, T2> = {
   name: keyof T;
-  Component: React.ComponentType;
+  Component: ReactNode;
   options?: T2;
 };
 

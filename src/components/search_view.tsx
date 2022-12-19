@@ -1,5 +1,5 @@
 import React from 'react';
-import {SearchInput} from '@ui/inputs';
+import {UniveNameSearchInput} from '@ui/inputs';
 import styled from 'styled-components/native';
 import {SearchViewInterviewList} from './lists';
 import {Link} from '@react-navigation/native';
@@ -14,7 +14,7 @@ const _LinkView = styled.View`
 export const SearchView = ({tabTitle}: {tabTitle: string}) => {
   return (
     <_SerchView>
-      <SearchInput />
+      <UniveNameSearchInput />
       <_LinkView>
         <Link to={{screen: 'InterviewList', params: {title: tabTitle}}}>
           전체보기

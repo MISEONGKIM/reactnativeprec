@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {Modal, Portal} from 'react-native-paper';
 import styled from 'styled-components/native';
 import {ModalStateType} from './type';
@@ -15,18 +15,12 @@ const containerStyle = {
   margin: 50,
 };
 
-const ModalView = ({
-  children,
-  modalState,
-}: {
-  children: JSX.Element;
-  modalState: Partial<ModalStateType>;
-}) => {
+const ModalView = (props: Partial<ModalStateType>, children: ReactNode) => {
   return (
     <Portal>
       <Modal
-        visible={modalState.visible!}
-        onDismiss={modalState.hideModal}
+        visible={props.visible!}
+        onDismiss={props.hideModal}
         contentContainerStyle={containerStyle}>
         {children}
       </Modal>
