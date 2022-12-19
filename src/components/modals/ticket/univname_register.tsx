@@ -24,7 +24,7 @@ const _QuestionText = styled(H3)`
 
 export const UnivnameRegisterModal = (props: Partial<ModalStateType>) => {
   return (
-    <ModalView {...props}>
+    <ModalView modalState={props}>
       <View>
         <_TitleView>
           <_TitleButton title="뒤로" onPress={props.hideModal} />
