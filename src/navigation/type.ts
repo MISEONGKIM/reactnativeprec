@@ -12,11 +12,11 @@ import type {
   MaterialTopTabScreenProps,
   MaterialTopTabNavigationOptions,
 } from '@react-navigation/material-top-tabs';
-import {ReactNode} from 'react';
+import React from 'react';
 
 type ScreenType<T, T2> = {
   name: keyof T;
-  Component: ReactNode;
+  Component: React.ComponentType;
   options?: T2;
 };
 

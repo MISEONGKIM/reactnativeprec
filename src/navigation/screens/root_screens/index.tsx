@@ -9,8 +9,9 @@ import {RootStackParamList, RootStackScreenType} from '@navigation/type';
 import {Button} from 'react-native';
 
 import BottomScreen from '../bottom_screens';
-import {AlramScreen, TicketScreen} from '../top_screens';
-import InterviewListScreen from '../appy_status_screens/interview_list_screen';
+import {AlramScreen} from '../top_screens';
+import {TicketScreen} from '../ticket_screens';
+import InterviewListScreen from '../appy_status_screens/interview_list_screen'; ///이것도 위치 손봐야할거같은데
 
 const Navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
@@ -19,7 +20,7 @@ export const RootScreen = () => {
   const screens: RootStackScreenType[] = [
     {
       name: 'Ticket',
-      Component: TicketScreen, //내일하자
+      Component: TicketScreen, /// 내일하자
       options: {
         headerRight: () => (
           <Button
@@ -69,7 +70,7 @@ export const RootScreen = () => {
     },
     {
       name: 'InterviewList',
-      Component: InterviewListScreen,
+      Component: InterviewListScreen, /// 내일하자
       options: {},
     },
   ];

@@ -16,6 +16,5 @@ export const Button1 = ({
   onPress: () => void;
   disabled: boolean;
 }) => {
-  console.log('disabled', disabled);
   return <_Button title={children} onPress={onPress} disabled={disabled} />;
 };
