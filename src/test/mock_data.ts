@@ -62,3 +62,12 @@ export interface TicketType {
   indenfityNumber: string;
   name: string;
 }
+
+export const univeNameData: string[] = [
+  '가대학교',
+  '나대학교',
+  '다대학교',
+  '라대학교',
+  '마대학교',
+  '바대학교',
+];

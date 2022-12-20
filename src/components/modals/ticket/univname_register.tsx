@@ -25,6 +25,7 @@ const _QuestionText = styled(H3)`
 `;
 
 export const UnivnameRegisterModal = (props: Partial<ModalStateType>) => {
+  const onChangeText = newText => {};
   return (
     <ModalView modalState={props}>
       <View>
@@ -33,7 +34,7 @@ export const UnivnameRegisterModal = (props: Partial<ModalStateType>) => {
           <H1>티켓 등록</H1>
         </_TitleView>
         <_QuestionText>지원하는 학교명을 입력해주세요.</_QuestionText>
-        <UnivnameRegisterInput />
+        <UnivnameRegisterInput onChangeText={onChangeText} />
         <Button1
           onPress={() => {
             Alert.alert('카메라 on');

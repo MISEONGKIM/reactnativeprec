@@ -9,6 +9,7 @@ const _Modal = styled.Modal`
   padding: 20px;
 `;
 const containerStyle = {
+  borderRadius: 12,
   backgroundColor: '#c8d7ff',
   width: 300,
   height: 300,
