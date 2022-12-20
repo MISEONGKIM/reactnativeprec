@@ -9,8 +9,6 @@ const _Input = styled.TextInput`
   padding: 10px;
 `;
 
-export const UniveNameSearchInput = () => {
-  return (
-    <_Input placeholder={univSearchInput} onChangeText={() => {}} value={''} />
-  );
-};
+export const UniveNameSearchInput = () => (
+  <_Input placeholder={univSearchInput} onChangeText={() => {}} value={''} />
+);

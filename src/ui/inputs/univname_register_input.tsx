@@ -13,6 +13,4 @@ export const UnivnameRegisterInput = ({
   onChangeText,
 }: {
   onChangeText: (newText: string) => void;
-}) => {
-  return <_Input placeholder={univRegisterInput} onChangeText={onChangeText} />;
-};
+}) => <_Input placeholder={univRegisterInput} onChangeText={onChangeText} />;

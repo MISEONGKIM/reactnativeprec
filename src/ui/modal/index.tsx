@@ -23,17 +23,15 @@ const ModalView = ({
 }: {
   children: ReactNode;
   modalState: Partial<ModalStateType>;
-}) => {
-  return (
-    <Portal>
-      <Modal
-        visible={modalState.visible!}
-        onDismiss={modalState.hideModal}
-        contentContainerStyle={containerStyle}>
-        {children}
-      </Modal>
-    </Portal>
-  );
-};
+}) => (
+  <Portal>
+    <Modal
+      visible={modalState.visible!}
+      onDismiss={modalState.hideModal}
+      contentContainerStyle={containerStyle}>
+      {children}
+    </Modal>
+  </Portal>
+);
 
 export default ModalView;
