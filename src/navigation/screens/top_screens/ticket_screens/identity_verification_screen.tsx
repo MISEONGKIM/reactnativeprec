@@ -1,7 +1,8 @@
-import {View, Text, Button} from 'react-native';
+import {View, Button} from 'react-native';
 import React from 'react';
 import {TicketStackScreenProps} from '@navigation/type';
 import {useNavigation} from '@react-navigation/native';
+import {CameraView} from '@components';
 
 export const IdentityVerificationScreen = () => {
   const navigation =
@@ -11,7 +12,7 @@ export const IdentityVerificationScreen = () => {
   return (
     <View>
       <Button onPress={() => navigation.goBack()} title="back" />
-      <Text>IdentityVerificationScreen</Text>
+      <CameraView />
     </View>
   );
 };

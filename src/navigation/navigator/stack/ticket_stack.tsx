@@ -46,7 +46,7 @@ export const TicketStack = () => {
           name={screen.name}
           component={screen.Component}
           options={screen.options}
-          // initialParams={screen.initialParams}  이거 필요할까
+          // initialParams={screen.initialParams}  ///이거 필요할까
         />
       ))}
     </Navigator.Navigator>

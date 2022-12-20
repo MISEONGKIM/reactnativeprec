@@ -11,6 +11,7 @@ import {useWrongMessage} from '@hooks';
 import {validationUnivName} from '@utils/validation';
 import {useNavigation} from '@react-navigation/native';
 import {TicketStackScreenProps} from '@navigation/type';
+import {cameraPermissionCheck} from '@utils/camera';
 
 const _TitleView = styled.View`
   flex-direction: row;
@@ -60,8 +61,11 @@ export const UnivnameRegisterModal = (props: Partial<ModalStateType>) => {
         <WrongMessage visible={isWrongMessage} />
         <Button1
           disabled={isDisabledButton}
-          onPress={() => {
+          onPress={async () => {
             props.hideModal!();
+            if (!(await cameraPermissionCheck())) {
+              return;
+            }
             navigation.navigate('IdenfityVerification');
           }}>
           계속
