@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import styled from 'styled-components/native';
-import {Alert, View} from 'react-native';
+import {View} from 'react-native';
 
 import ModalView from '@ui/modal';
 import {ModalStateType} from '@ui/modal/type';
@@ -9,6 +9,8 @@ import {UnivnameRegisterInput} from '@ui/inputs';
 import {Button1} from '@ui/buttons';
 import {useWrongMessage} from '@hooks';
 import {validationUnivName} from '@utils/validation';
+import {useNavigation} from '@react-navigation/native';
+import {TicketStackScreenProps} from '@navigation/type';
 
 const _TitleView = styled.View`
   flex-direction: row;
@@ -30,6 +32,8 @@ export const UnivnameRegisterModal = (props: Partial<ModalStateType>) => {
   const {isWrongMessage, showWrongMessage, hideWrongMessage} =
     useWrongMessage();
   const [isDisabledButton, setIsDisabledButton] = useState(true);
+  const navigation =
+    useNavigation<TicketStackScreenProps<'Ticket'>['navigation']>();
 
   const onChangeText = useCallback(
     (newText: string) => {
@@ -57,7 +61,8 @@ export const UnivnameRegisterModal = (props: Partial<ModalStateType>) => {
         <Button1
           disabled={isDisabledButton}
           onPress={() => {
-            Alert.alert('카메라 on');
+            props.hideModal!();
+            navigation.navigate('IdenfityVerification');
           }}>
           계속
         </Button1>

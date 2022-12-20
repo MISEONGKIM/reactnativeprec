@@ -42,6 +42,7 @@ export const RootStack = () => {
       name: 'TicketStack',
       Component: TicketStack,
       options: {
+        headerShown: false,
         headerRight: () => (
           <Button
             //onPress={() => navigationRef.goBack()}

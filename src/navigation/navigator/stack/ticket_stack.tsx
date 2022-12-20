@@ -1,28 +1,45 @@
 import React from 'react';
-import {TicketStackParamList, TicketStackScreenType} from '@navigation/type';
+import {
+  RootStackScreenProps,
+  TicketStackParamList,
+  TicketStackScreenType,
+} from '@navigation/type';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   TicketScreen,
   IdentityVerificationScreen,
 } from '@navigation/screens/top_screens';
+import {Button} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const Navigator = createNativeStackNavigator<TicketStackParamList>();
 
 export const TicketStack = () => {
+  const rootNavigation =
+    useNavigation<RootStackScreenProps<'TicketStack'>['navigation']>();
+
   const screens: TicketStackScreenType[] = [
     {
       name: 'Ticket',
       Component: TicketScreen, ///이것도 손봐야함
+      options: {
+        headerRight: () => (
+          <Button
+            onPress={() => rootNavigation.navigate('Bottom')}
+            title="Home"
+            color="#333"
+          />
+        ),
+      },
     },
     {
       name: 'IdenfityVerification',
       Component: IdentityVerificationScreen,
+      options: {headerShown: false},
     },
   ];
   return (
-    <Navigator.Navigator
-      initialRouteName="Ticket"
-      screenOptions={{headerShown: false}}>
+    <Navigator.Navigator initialRouteName="Ticket">
       {screens.map((screen, i) => (
         <Navigator.Screen
           key={'TicketStack' + i}

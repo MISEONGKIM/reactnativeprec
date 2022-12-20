@@ -64,6 +64,7 @@ export interface TicketType {
 }
 
 export const univeNameData: string[] = [
+  'ㄱ',
   '가대학교',
   '나대학교',
   '다대학교',
