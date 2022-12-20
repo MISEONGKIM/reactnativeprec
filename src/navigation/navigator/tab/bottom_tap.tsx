@@ -1,16 +1,17 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {BottomTabParamList, BottomTabScreenType} from '@navigation/type';
-import {ApplyStatusTap} from './apply_status_tap';
+
 import {MainScreen, MyPageScreen} from '@navigation/screens/bottom_screens';
+import {ApplyStatusStack} from '../stack';
 
 const Navigation = createBottomTabNavigator<BottomTabParamList>();
 
 export const BottomTab = () => {
   const screens: BottomTabScreenType[] = [
     {
-      name: 'ApplyStatus',
-      Component: ApplyStatusTap,
+      name: 'ApplyStatusStack',
+      Component: ApplyStatusStack,
     },
     {
       name: 'Main',

@@ -7,10 +7,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {RootStackParamList, RootStackScreenType} from '@navigation/type';
 import {Button} from 'react-native';
-import {BottomTab} from '../tab/bottom_tap';
+import {BottomTab} from '../tab';
 import {TicketStack} from './ticket_stack';
 import {AlramScreen} from '@navigation/screens/top_screens';
-import {InterviewListScreen} from '@navigation/screens/bottom_screens';
 
 const Navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
@@ -56,11 +55,6 @@ export const RootStack = () => {
     {
       name: 'Alram',
       Component: AlramScreen,
-    },
-    {
-      name: 'InterviewList',
-      Component: InterviewListScreen, /// 내일하자
-      options: {},
     },
   ];
   return (

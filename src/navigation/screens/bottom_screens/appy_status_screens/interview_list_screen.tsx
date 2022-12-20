@@ -1,10 +1,11 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-import {RootStackScreenProps} from '@navigation/type';
+import {ApplyStatusStackScreenProps} from '@navigation/type';
 
+///이페이지 이동했을 때 headertitle 변경되어야함 !
 export const InterviewListScreen = ({
   route,
-}: RootStackScreenProps<'InterviewList'>) => {
+}: ApplyStatusStackScreenProps<'InterviewList'>) => {
   return (
     <View>
       <Text>{route.params?.title ?? ''}</Text>

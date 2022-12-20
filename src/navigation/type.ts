@@ -25,10 +25,9 @@ type ScreenType<T, T2> = {
 };
 
 export type RootStackParamList = {
-  TicketStack: NavigatorScreenParams<TicketStackParamList>;
   Bottom: undefined;
+  TicketStack: NavigatorScreenParams<TicketStackParamList>;
   Alram: undefined;
-  InterviewList: {title: string};
 };
 
 export type RootStackScreenType = ScreenType<
@@ -40,7 +39,7 @@ export type RootStackScreenProps<T extends keyof RootStackParamList> =
   NativeStackScreenProps<RootStackParamList, T>;
 
 export type BottomTabParamList = {
-  ApplyStatus: undefined;
+  ApplyStatusStack: undefined;
   Main: undefined;
   MyPage: undefined;
 };
@@ -82,3 +81,17 @@ export type TicketStackScreenType = ScreenType<
 
 export type TicketStackScreenProps<T extends keyof TicketStackParamList> =
   NativeStackScreenProps<TicketStackParamList, T>;
+
+export type ApplyStatusStackParamList = {
+  ApplyStatusTap: undefined;
+  InterviewList: {title: string};
+};
+
+export type ApplyStatusStackScreenType = ScreenType<
+  ApplyStatusStackParamList,
+  NativeStackNavigationOptions
+>;
+
+export type ApplyStatusStackScreenProps<
+  T extends keyof ApplyStatusStackParamList,
+> = NativeStackScreenProps<ApplyStatusStackParamList, T>;
