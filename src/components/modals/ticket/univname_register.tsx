@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components/native';
 import {Alert, View} from 'react-native';
 
@@ -29,10 +29,20 @@ const _QuestionText = styled(H3)`
 export const UnivnameRegisterModal = (props: Partial<ModalStateType>) => {
   const {isWrongMessage, showWrongMessage, hideWrongMessage} =
     useWrongMessage();
+  const [isDisabledButton, setIsDisabledButton] = useState(true);
 
-  const onChangeText = (newText: string) => {
-    validationUnivName(newText) ? hideWrongMessage() : showWrongMessage();
-  };
+  const onChangeText = useCallback(
+    (newText: string) => {
+      if (!validationUnivName(newText)) {
+        showWrongMessage();
+        setIsDisabledButton(true);
+        return;
+      }
+      hideWrongMessage();
+      setIsDisabledButton(newText === '');
+    },
+    [hideWrongMessage, showWrongMessage],
+  );
 
   return (
     <ModalView modalState={props}>
@@ -45,7 +55,7 @@ export const UnivnameRegisterModal = (props: Partial<ModalStateType>) => {
         <UnivnameRegisterInput onChangeText={onChangeText} />
         <WrongMessage visible={isWrongMessage} />
         <Button1
-          disabled={!isWrongMessage}
+          disabled={isDisabledButton}
           onPress={() => {
             Alert.alert('카메라 on');
           }}>
