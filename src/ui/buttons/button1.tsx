@@ -10,9 +10,12 @@ const _Button = styled.Button`
 export const Button1 = ({
   children,
   onPress,
+  disabled,
 }: {
   children: string;
   onPress: () => void;
+  disabled: boolean;
 }) => {
-  return <_Button title={children} onPress={onPress} />;
+  console.log('disabled', disabled);
+  return <_Button title={children} onPress={onPress} disabled={disabled} />;
 };
