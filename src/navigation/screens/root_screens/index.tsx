@@ -9,29 +9,14 @@ import {RootStackParamList, RootStackScreenType} from '@navigation/type';
 import {Button} from 'react-native';
 
 import BottomScreen from '../bottom_screens';
-import {AlramScreen} from '../top_screens';
-import {TicketScreen} from '../ticket_screens';
-import InterviewListScreen from '../appy_status_screens/interview_list_screen'; ///이것도 위치 손봐야할거같은데
+import InterviewListScreen from '../bottom_screens/appy_status_screens/interview_list_screen'; ///이것도 위치 손봐야할거같은데
+import {AlramScreen, TicketStackScreen} from '../top_screens';
 
 const Navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
 export const RootScreen = () => {
   const screens: RootStackScreenType[] = [
-    {
-      name: 'Ticket',
-      Component: TicketScreen, /// 내일하자
-      options: {
-        headerRight: () => (
-          <Button
-            //onPress={() => navigationRef.goBack()}
-            onPress={() => navigationRef.navigate('Bottom')}
-            title="Back"
-            color="#333"
-          />
-        ),
-      },
-    },
     {
       name: 'Bottom',
       Component: BottomScreen,
@@ -40,7 +25,7 @@ export const RootScreen = () => {
           <Button
             key={1}
             onPress={() =>
-              navigationRef.navigate('Ticket', {id: 'root에서 버튼클릭'})
+              navigationRef.navigate('TicketStack', {id: 'root에서 버튼클릭'})
             }
             title="Ticket"
             color="#333"
@@ -54,19 +39,24 @@ export const RootScreen = () => {
         ],
       },
     },
-
     {
-      name: 'Alram',
-      Component: AlramScreen,
+      name: 'TicketStack',
+      Component: TicketStackScreen, /// 내일하자
+      initialParams: {id: ''},
       options: {
         headerRight: () => (
           <Button
-            onPress={() => navigationRef.goBack()}
+            //onPress={() => navigationRef.goBack()}
+            onPress={() => navigationRef.navigate('Bottom')}
             title="Back"
             color="#333"
           />
         ),
       },
+    },
+    {
+      name: 'Alram',
+      Component: AlramScreen,
     },
     {
       name: 'InterviewList',
@@ -76,7 +66,7 @@ export const RootScreen = () => {
   ];
   return (
     <NavigationContainer ref={navigationRef}>
-      <Navigator.Navigator>
+      <Navigator.Navigator initialRouteName="TicketStack">
         {screens.map((screen, i) => (
           <Navigator.Screen
             key={'Stack' + i}

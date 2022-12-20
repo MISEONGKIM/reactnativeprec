@@ -1,13 +1,13 @@
 import {View, Text, Button} from 'react-native';
 import React from 'react';
-import {RootStackScreenProps} from '@navigation/type';
+import {TicketStackScreenProps} from '@navigation/type';
 import {UniveNameSearchInput} from '@ui/inputs';
 import {ticketListData} from '@test/mock_data';
 import {TicketList} from '@components';
 import {useModal} from '@hooks';
 import {UnivnameRegisterModal} from '@components/modals/ticket';
 
-export const TicketScreen = ({route}: RootStackScreenProps<'Ticket'>) => {
+export const TicketScreen = ({route}: TicketStackScreenProps<'Ticket'>) => {
   const {visible, hideModal, showModal} = useModal();
   return (
     <View>
