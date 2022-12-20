@@ -9,6 +9,7 @@ import {UnivnameRegisterModal} from '@components/modals/ticket';
 
 export const TicketScreen = ({route}: TicketStackScreenProps<'Ticket'>) => {
   const {visible, hideModal, showModal} = useModal();
+  console.log('route.params : ', route.params);
   return (
     <View>
       <Text>{route.params?.id ?? ''}</Text>

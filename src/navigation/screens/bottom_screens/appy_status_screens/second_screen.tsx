@@ -3,7 +3,7 @@ import React from 'react';
 import {SearchView, SecondPageApplyItvList, SwitchView} from '@components';
 import {interviewListData} from '@test/mock_data';
 
-const SecondScreen = () => {
+export const SecondScreen = () => {
   const data = interviewListData.filter(item => item.isCheck);
   return (
     <View>
@@ -13,4 +13,3 @@ const SecondScreen = () => {
     </View>
   );
 };
-export default SecondScreen;

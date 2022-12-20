@@ -20,7 +20,7 @@ import React from 'react';
 type ScreenType<T, T2> = {
   name: keyof T;
   Component: React.ComponentType;
-  initialParams?: NavigatorScreenParams<T>;
+  initialParams?: any; /// 이건어떻게 ?
   options?: T2;
 };
 
@@ -71,7 +71,7 @@ export type TopTabScreenProps<T extends keyof TopTabParamList> =
   >;
 
 export type TicketStackParamList = {
-  Ticket: {id?: string};
+  Ticket: {id: ''};
   IdenfityVerification: undefined;
 };
 

@@ -4,7 +4,7 @@ import {SearchView} from '@components/search_view';
 import {SwitchView} from '@components';
 import {Link} from '@react-navigation/native';
 
-const FirstScreen = () => {
+export const FirstScreen = () => {
   return (
     <View>
       <SearchView tabTitle={'첫번째 면접'} />
@@ -14,5 +14,3 @@ const FirstScreen = () => {
     </View>
   );
 };
-
-export default FirstScreen;

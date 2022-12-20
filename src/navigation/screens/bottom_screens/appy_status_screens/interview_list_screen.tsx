@@ -2,7 +2,7 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import {RootStackScreenProps} from '@navigation/type';
 
-const InterviewListScreen = ({
+export const InterviewListScreen = ({
   route,
 }: RootStackScreenProps<'InterviewList'>) => {
   return (
@@ -11,5 +11,3 @@ const InterviewListScreen = ({
     </View>
   );
 };
-
-export default InterviewListScreen;
