@@ -1,6 +1,7 @@
 import type {
   CompositeScreenProps,
   NavigatorScreenParams,
+  ParamListBase,
 } from '@react-navigation/native';
 import type {
   NativeStackScreenProps,
@@ -17,9 +18,9 @@ import type {
 } from '@react-navigation/material-top-tabs';
 import React from 'react';
 
-type ScreenType<T, T2> = {
+type ScreenType<T extends ParamListBase, T2> = {
   name: keyof T;
-  Component: React.ComponentType;
+  Component: React.FunctionComponent<NativeStackScreenProps<T, keyof T> | {}>;
   initialParams?: any; /// 이건어떻게 ?
   options?: T2;
 };
@@ -70,8 +71,9 @@ export type TopTabScreenProps<T extends keyof TopTabParamList> =
   >;
 
 export type TicketStackParamList = {
-  Ticket: {id: ''};
+  Ticket: {id?: string};
   IdenfityVerification: undefined;
+  PhotoScreen: {path: string};
 };
 
 export type TicketStackScreenType = ScreenType<

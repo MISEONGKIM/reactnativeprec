@@ -8,6 +8,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   TicketScreen,
   IdentityVerificationScreen,
+  PhotoScreen,
 } from '@navigation/screens/top_screens';
 import {Button} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
@@ -35,6 +36,11 @@ export const TicketStack = () => {
     {
       name: 'IdenfityVerification',
       Component: IdentityVerificationScreen,
+      options: {headerShown: false},
+    },
+    {
+      name: 'PhotoScreen',
+      Component: PhotoScreen,
       options: {headerShown: false},
     },
   ];
