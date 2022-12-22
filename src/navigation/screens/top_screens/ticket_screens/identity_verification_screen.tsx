@@ -1,4 +1,3 @@
-import {View} from 'react-native';
 import React, {useCallback, useRef, useState} from 'react';
 import {TicketStackScreenProps} from '@navigation/type';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
@@ -9,8 +8,12 @@ import {CameraButton} from '@ui/buttons';
 import {Camera, PhotoFile} from 'react-native-vision-camera';
 import {useIsForeground} from '@hooks';
 const _View = styled.View`
-  flex: 1;
   background-color: black;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
 `;
 
 const _Image = styled.Image`

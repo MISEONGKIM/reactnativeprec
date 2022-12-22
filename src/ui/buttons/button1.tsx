@@ -6,6 +6,7 @@ const _Button = styled.Button`
   text-align: center;
   background-color: #04aa6d;
   color: white;
+  width: 10px;
 `;
 export const Button1 = ({
   children,

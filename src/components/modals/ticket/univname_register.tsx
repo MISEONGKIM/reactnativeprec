@@ -23,12 +23,6 @@ const _TitleButton = styled.Button`
   height: 10px;
 `;
 
-//이걸 어쩌지
-const _QuestionText = styled(H3)`
-  font-weight: 100;
-  color: tomato;
-`;
-
 export const UnivnameRegisterModal = (props: Partial<ModalStateType>) => {
   const {isWrongMessage, showWrongMessage, hideWrongMessage} =
     useWrongMessage();
@@ -56,13 +50,15 @@ export const UnivnameRegisterModal = (props: Partial<ModalStateType>) => {
           <_TitleButton title="뒤로" onPress={props.hideModal} />
           <H1>티켓 등록</H1>
         </_TitleView>
-        <_QuestionText>지원하는 학교명을 입력해주세요.</_QuestionText>
+        <H3>지원하는 학교명을 입력해주세요.</H3>
         <UnivnameRegisterInput onChangeText={onChangeText} />
         <WrongMessage visible={isWrongMessage} />
         <Button1
           disabled={isDisabledButton}
           onPress={async () => {
             props.hideModal!();
+            setIsDisabledButton(true);
+            hideWrongMessage();
             if (!(await cameraPermissionCheck())) {
               return;
             }
