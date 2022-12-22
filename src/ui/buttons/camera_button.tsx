@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {ViewProps} from 'react-native';
 import {
   State,
@@ -26,12 +26,15 @@ interface Props extends ViewProps {
 }
 
 export const CameraButton = ({camera, onMediaCaptured, enabled}: Props) => {
-  const takePhotoOptions: TakePhotoOptions = {
-    qualityPrioritization: 'speed',
-    skipMetadata: true,
-  };
+  const takePhotoOptions = useMemo<TakePhotoOptions>(
+    () => ({
+      qualityPrioritization: 'speed',
+      skipMetadata: true,
+    }),
+    [],
+  );
 
-  const takePhoto = async () => {
+  const takePhoto = useCallback(async () => {
     try {
       if (camera.current == null) {
         throw new Error('Camera ref is null!');
@@ -43,13 +46,17 @@ export const CameraButton = ({camera, onMediaCaptured, enabled}: Props) => {
     } catch (e) {
       console.error('Failed to take photo!', e);
     }
-  };
+  }, [camera, onMediaCaptured, takePhotoOptions]);
 
-  const onHandlerStateChanged = (event: TapGestureHandlerStateChangeEvent) => {
-    if (event.nativeEvent.state === State.ACTIVE) {
+  const onHandlerStateChanged = useCallback(
+    (event: TapGestureHandlerStateChangeEvent) => {
+      if (event.nativeEvent.state !== State.ACTIVE) {
+        return;
+      }
       takePhoto();
-    }
-  };
+    },
+    [takePhoto],
+  );
 
   return (
     <TapGestureHandler
