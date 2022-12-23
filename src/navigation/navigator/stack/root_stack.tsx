@@ -23,9 +23,10 @@ export const RootStack = () => {
         headerRight: () => [
           <Button
             key={1}
-            // onPress={() =>
-            //   navigationRef.navigate('Ticket', {id: 'root에서 버튼클릭'})
-            // }
+            onPress={
+              () =>
+                navigationRef.navigate('TicketStack', {id: 'root에서 버튼클릭'}) /// 후ㅠ...
+            }
             title="Ticket"
             color="#333"
           />,
