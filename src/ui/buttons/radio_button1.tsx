@@ -21,20 +21,15 @@ export const RadioButton1 = ({
   const checkedState = useChecked(initValue);
 
   return (
-    <>
+    <RadioButton.Group
+      onValueChange={newValue => checkedState.setChecked(newValue)}
+      value={checkedState.checked}>
       {items.map(item => (
-        <_View>
-          <RadioButton
-            key={'radio' + item.value}
-            value={item.value}
-            status={
-              item.value === checkedState.checked ? 'checked' : 'unchecked'
-            }
-            onPress={() => checkedState.setChecked(item.value)}
-          />
+        <_View key={'radio' + item.value}>
+          <RadioButton value={item.value} />
           <Text>{item.text}</Text>
         </_View>
       ))}
-    </>
+    </RadioButton.Group>
   );
 };
