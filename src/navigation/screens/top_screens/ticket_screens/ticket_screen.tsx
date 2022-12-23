@@ -10,6 +10,7 @@ import {
   SelTypeCheck,
   UnivnameRegisterModal,
 } from '@components/modals/ticket';
+import {Checkbox} from 'react-native-paper';
 
 export const TicketScreen = ({route}: TicketStackScreenProps<'Ticket'>) => {
   const {visible, hideModal, showModal} = useModal();
@@ -26,8 +27,9 @@ export const TicketScreen = ({route}: TicketStackScreenProps<'Ticket'>) => {
         }}
         title="등록"
       />
+
       <UnivnameRegisterModal visible={visible} hideModal={hideModal} />
-      <MajorCheck visible={visibleDialog} hideDialog={hideDialog} />
+      {/* <MajorCheck visible={visibleDialog} hideDialog={hideDialog} />  */}
       <SelTypeCheck visible={visibleDialog} hideDialog={hideDialog} />
     </View>
   );
