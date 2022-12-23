@@ -6,25 +6,35 @@ import styled from 'styled-components/native';
 const _View = styled.View`
   flex-direction: row;
 `;
-const RadioButton1 = ({
-  value,
-  text,
-  checkedState,
-}: {
+
+export interface RadioButtonItemType {
   value: string;
   text: string;
-  checkedState: ReturnType<typeof useChecked>;
+}
+export const RadioButton1 = ({
+  items,
+  initValue,
+}: {
+  items: RadioButtonItemType[];
+  initValue: string;
 }) => {
+  const checkedState = useChecked(initValue);
+
   return (
-    <_View>
-      <RadioButton
-        value={value}
-        status={value === checkedState.checked ? 'checked' : 'unchecked'}
-        onPress={() => checkedState.setChecked(value)}
-      />
-      <Text>{text}</Text>
-    </_View>
+    <>
+      {items.map(item => (
+        <_View>
+          <RadioButton
+            key={'radio' + item.value}
+            value={item.value}
+            status={
+              item.value === checkedState.checked ? 'checked' : 'unchecked'
+            }
+            onPress={() => checkedState.setChecked(item.value)}
+          />
+          <Text>{item.text}</Text>
+        </_View>
+      ))}
+    </>
   );
 };
-
-export default RadioButton1;
