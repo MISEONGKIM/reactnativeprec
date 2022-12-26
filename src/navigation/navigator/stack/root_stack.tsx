@@ -13,6 +13,17 @@ import {AlramScreen} from '@navigation/screens/top_screens';
 
 const Navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
+const MyTheme = {
+  dark: false,
+  colors: {
+    primary: 'rgb(255, 45, 85)',
+    background: '#6495ED',
+    card: 'rgb(255, 255, 255)',
+    text: 'rgb(0, 0, 0)',
+    border: 'rgb(199, 199, 204)',
+    notification: 'rgb(255, 69, 58)',
+  },
+};
 
 export const RootStack = () => {
   const screens: RootStackScreenType[] = [
@@ -46,8 +57,7 @@ export const RootStack = () => {
         headerShown: false,
         headerRight: () => (
           <Button
-            //onPress={() => navigationRef.goBack()}
-            onPress={() => navigationRef.navigate('Bottom')}
+            onPress={() => navigationRef.goBack()}
             title="Back"
             color="#333"
           />
@@ -60,8 +70,8 @@ export const RootStack = () => {
     },
   ];
   return (
-    <NavigationContainer ref={navigationRef}>
-      <Navigator.Navigator initialRouteName="TicketStack">
+    <NavigationContainer ref={navigationRef} theme={MyTheme}>
+      <Navigator.Navigator initialRouteName="Bottom">
         {screens.map((screen, i) => (
           <Navigator.Screen
             key={'Stack' + i}
