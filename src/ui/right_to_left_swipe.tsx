@@ -11,7 +11,6 @@ const _ViewContainer = styled.View`
 `;
 
 const _DefaultView = styled.View`
-  background-color: white;
   justify-content: center;
   width: ${({widthPercent}: {widthPercent: number}) => widthPercent}px;
 `;

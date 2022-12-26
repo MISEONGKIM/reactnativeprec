@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import type {InterviewListType} from '@test/mock_data';
 import {RightToLeftSwipe} from '@ui/right_to_left_swipe';
+import {black} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
 const _CardView = styled.View`
   flex-direction: row;

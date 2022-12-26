@@ -24,7 +24,7 @@ export const BottomTab = () => {
   ];
   return (
     <Navigation.Navigator
-      initialRouteName={'Main'}
+      initialRouteName={'ApplyStatusStack'}
       screenOptions={{headerShown: false}}>
       {screens.map((screen, i) => (
         <Navigation.Screen
