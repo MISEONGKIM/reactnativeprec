@@ -3,8 +3,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import type {InterviewListType} from '@test/mock_data';
 import {RightToLeftSwipe} from '@ui/right_to_left_swipe';
-import {black} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
-
+import {Button} from 'react-native-paper';
 const _CardView = styled.View`
   flex-direction: row;
   justify-content: flex-start;
@@ -23,7 +22,13 @@ const RightSwipe = () => {
   return <Text>삭제</Text>;
 };
 
-export const SecondPageApplyItvCard = ({item}: {item: InterviewListType}) => {
+export const SecondPageApplyItvCard = ({
+  item,
+  onPress,
+}: {
+  item: InterviewListType;
+  onPress: () => void;
+}) => {
   const itemText = (Object.keys(item) as Array<keyof InterviewListType>)
     .filter(key => key !== 'code')
     .map((key, i) => <Text key={'univInfoCard' + i}>{item[key]}</Text>);
@@ -36,6 +41,9 @@ export const SecondPageApplyItvCard = ({item}: {item: InterviewListType}) => {
       <_CardView>
         <_Image source={require('@assets/images/univ.png')} />
         <View>{itemText}</View>
+        <Button mode="contained" onPress={onPress}>
+          입장
+        </Button>
       </_CardView>
     </RightToLeftSwipe>
   );

@@ -1,4 +1,4 @@
-import {StatusBar} from 'react-native';
+import {ListRenderItem, StatusBar} from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
@@ -7,14 +7,14 @@ const _VerticalFlatList = styled.FlatList`
   margintop: ${StatusBar.currentHeight} || 0;
 `;
 
-export const VerticalFlatList = ({
+export const VerticalFlatList = <T extends Record<string, any>>({
   data,
-  RenderItem,
+  renderItem,
 }: {
-  data: Record<string, any>[];
-  RenderItem: any; //일단 보류
+  data: Array<T>;
+  renderItem: React.Component; ///ㅠㅠㅠ
 }) => {
-  return <_VerticalFlatList data={data} renderItem={RenderItem} />;
+  return <_VerticalFlatList data={data} renderItem={renderItem} />;
 };
 /*어떤 array 가 올지 알고 ?  */
 VerticalFlatList.prototype = {

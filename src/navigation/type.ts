@@ -87,6 +87,7 @@ export type TicketStackScreenProps<T extends keyof TicketStackParamList> =
 export type ApplyStatusStackParamList = {
   ApplyStatusTap: undefined;
   InterviewList: {title: string};
+  AssayAnswerPhoto: undefined;
 };
 
 export type ApplyStatusStackScreenType = ScreenType<

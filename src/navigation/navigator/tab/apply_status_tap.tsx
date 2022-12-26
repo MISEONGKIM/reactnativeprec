@@ -13,7 +13,7 @@ export const ApplyStatusTap = () => {
   ];
 
   return (
-    <Navigation.Navigator initialRouteName={'First'}>
+    <Navigation.Navigator initialRouteName={'Second'}>
       {screens.map((screen, i) => (
         <Navigation.Screen
           key={'toptap' + i}
