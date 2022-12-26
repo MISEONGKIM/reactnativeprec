@@ -10,6 +10,7 @@ import {Button} from 'react-native';
 import {BottomTab} from '../tab';
 import {TicketStack} from './ticket_stack';
 import {AlramScreen} from '@navigation/screens/top_screens';
+import {EssayAnswerPhotoScreen} from '@navigation/screens/bottom_screens';
 
 const Navigator = createNativeStackNavigator<RootStackParamList>();
 const navigationRef = createNavigationContainerRef<RootStackParamList>();
@@ -67,6 +68,14 @@ export const RootStack = () => {
     {
       name: 'Alram',
       Component: AlramScreen,
+    },
+
+    {
+      name: 'AssayAnswerPhoto',
+      Component: EssayAnswerPhotoScreen,
+      options: {
+        headerShown: false,
+      },
     },
   ];
   return (

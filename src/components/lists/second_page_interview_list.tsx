@@ -2,15 +2,13 @@ import React from 'react';
 import {VerticalFlatList} from '@ui/lists';
 import {SecondPageApplyItvCard} from '@components';
 import {InterviewListType} from '@test/mock_data';
-import {ApplyStatusStackScreenProps} from '@navigation/type';
+import {RootStackScreenProps} from '@navigation/type';
 import {useNavigation} from '@react-navigation/native';
 import {ListRenderItemInfo} from 'react-native';
 
 export const SecondPageApplyItvList = ({data}: {data: InterviewListType[]}) => {
   const navigation =
-    useNavigation<
-      ApplyStatusStackScreenProps<'ApplyStatusTap'>['navigation']
-    >();
+    useNavigation<RootStackScreenProps<'Bottom'>['navigation']>();
   const registerBtnOnPress = () => {
     navigation.navigate('AssayAnswerPhoto');
   };

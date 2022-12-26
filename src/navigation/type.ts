@@ -29,6 +29,7 @@ export type RootStackParamList = {
   Bottom: undefined;
   TicketStack: NavigatorScreenParams<TicketStackParamList>;
   Alram: undefined;
+  AssayAnswerPhoto: undefined;
 };
 
 export type RootStackScreenType = ScreenType<
@@ -87,7 +88,6 @@ export type TicketStackScreenProps<T extends keyof TicketStackParamList> =
 export type ApplyStatusStackParamList = {
   ApplyStatusTap: undefined;
   InterviewList: {title: string};
-  AssayAnswerPhoto: undefined;
 };
 
 export type ApplyStatusStackScreenType = ScreenType<
