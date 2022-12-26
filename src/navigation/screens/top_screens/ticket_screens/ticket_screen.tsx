@@ -6,15 +6,15 @@ import {ticketListData} from '@test/mock_data';
 import {TicketList} from '@components';
 import {useDialog, useModal} from '@hooks';
 import {
-  MajorCheck,
-  SelTypeCheck,
+  MajorCheckDialog,
+  SelTypeCheckDialog,
   UnivnameRegisterModal,
 } from '@components/modals/ticket';
-import {Checkbox} from 'react-native-paper';
 
 export const TicketScreen = ({route}: TicketStackScreenProps<'Ticket'>) => {
   const {visible, hideModal, showModal} = useModal();
-  const {visible: visibleDialog, hideDialog, showDialog} = useDialog();
+  const majorDialog = useDialog();
+  const selTypeDialog = useDialog();
   console.log('route.params : ', route.params);
   return (
     <View>
@@ -23,14 +23,14 @@ export const TicketScreen = ({route}: TicketStackScreenProps<'Ticket'>) => {
       <TicketList data={ticketListData} />
       <Button
         onPress={() => {
-          showDialog();
+          showModal();
         }}
         title="등록"
       />
 
       <UnivnameRegisterModal visible={visible} hideModal={hideModal} />
-      {/* <MajorCheck visible={visibleDialog} hideDialog={hideDialog} />  */}
-      <SelTypeCheck visible={visibleDialog} hideDialog={hideDialog} />
+      <MajorCheckDialog dialogState={majorDialog} onPressOK={() => {}} />
+      <SelTypeCheckDialog dialogState={selTypeDialog} onPressOK={() => {}} />
     </View>
   );
 };
