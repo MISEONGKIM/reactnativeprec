@@ -21,7 +21,7 @@ const _SwipeView = styled.View`
   width: ${({widthPercent}: {widthPercent: number}) => widthPercent}px;
 `;
 
-const DIMENSIONS_WIDTH = Dimensions.get('window').width;
+const DIMENSIONS_WIDTH = Dimensions.get('screen').width;
 
 export const RightToLeftSwipe = ({
   children,

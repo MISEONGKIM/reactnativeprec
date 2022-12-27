@@ -1,4 +1,4 @@
-import {Camera, useCameraDevices} from 'react-native-vision-camera';
+import {Camera} from 'react-native-vision-camera';
 import {CameraPermissionStatusCls} from './permission_status';
 
 export const cameraPermissionCheck = async (): Promise<boolean> => {
@@ -6,10 +6,4 @@ export const cameraPermissionCheck = async (): Promise<boolean> => {
   return CameraPermissionStatusCls.createPermissionStatus(
     cameraPermission,
   ).nextStep();
-};
-
-export const useCameraDevice = () => {
-  const devices = useCameraDevices();
-
-  return {frontCameraDevice: devices.front};
 };

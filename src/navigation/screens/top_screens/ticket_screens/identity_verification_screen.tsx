@@ -52,7 +52,11 @@ export const IdentityVerificationScreen = () => {
 
   return (
     <_View>
-      <CameraView camera={camera} onInitialized={onInitialized} />
+      <CameraView
+        camera={camera}
+        onInitialized={onInitialized}
+        type={'front'}
+      />
       <_Image source={require('@assets/images/user.png')} />
       <CameraButton
         camera={camera}
