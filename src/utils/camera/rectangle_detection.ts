@@ -1,8 +1,8 @@
-import {Frame} from 'react-native-vision-camera';
+// import {Frame} from 'react-native-vision-camera';
 
-export const detect = (frame: Frame) => {
-  console.log('Frame', frame);
-};
+// export const detect = (frame: Frame) => {
+//   console.log('Frame', frame);
+// };
 
 // import cv, { boundingRect, computeCorrespondEpilines, Scalar } from "@techstark/opencv-js";
 // import { loadDataFile } from "./cvDataFile";
