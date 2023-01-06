@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  RootStackScreenProps,
-  TicketStackParamList,
-  TicketStackScreenType,
-} from '@navigation/type';
+import {RootStackScreenProps, TicketStackParamList} from '@navigation/type';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   TicketScreen,
@@ -19,42 +15,37 @@ export const TicketStack = () => {
   const rootNavigation =
     useNavigation<RootStackScreenProps<'TicketStack'>['navigation']>();
 
-  const screens: TicketStackScreenType[] = [
-    {
-      name: 'Ticket',
-      Component: TicketScreen, ///이것도 손봐야함
-      options: {
-        headerRight: () => (
-          <Button
-            onPress={() => rootNavigation.navigate('Bottom')}
-            title="Home"
-            color="#333"
-          />
-        ),
-      },
-    },
-    {
-      name: 'IdenfityVerification',
-      Component: IdentityVerificationScreen,
-      options: {headerShown: false},
-    },
-    {
-      name: 'PhotoScreen',
-      Component: PhotoScreen,
-      options: {headerShown: false},
-    },
-  ];
   return (
     <Navigator.Navigator initialRouteName="Ticket">
-      {screens.map((screen, i) => (
-        <Navigator.Screen
-          key={'TicketStack' + i}
-          name={screen.name}
-          component={screen.Component}
-          options={screen.options}
-          // initialParams={screen.initialParams}  ///이거 필요할까
-        />
-      ))}
+      <Navigator.Screen
+        key={'StackTicket'}
+        name={'Ticket'}
+        component={TicketScreen}
+        options={{
+          headerRight: () => (
+            <Button
+              onPress={() => rootNavigation.navigate('Bottom')}
+              title="Home"
+              color="#333"
+            />
+          ),
+        }}
+      />
+
+      <Navigator.Screen
+        key={'IdenfityVerification'}
+        name={'IdenfityVerification'}
+        component={IdentityVerificationScreen}
+      />
+
+      <Navigator.Screen
+        key={'PhotoScreen'}
+        name={'PhotoScreen'}
+        component={PhotoScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Navigator.Navigator>
   );
 };
