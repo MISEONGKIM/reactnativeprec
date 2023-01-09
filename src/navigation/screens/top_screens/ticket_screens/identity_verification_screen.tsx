@@ -1,51 +1,22 @@
-import React, {useRef} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {RNCamera} from 'react-native-camera';
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: 'black',
-  },
-  preview: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-  capture: {
-    flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    padding: 15,
-    paddingHorizontal: 20,
-    alignSelf: 'center',
-    margin: 20,
-  },
-});
-
+import {useCamera} from '@hooks/useCamera';
+import {TicketStackScreenProps} from '@navigation/type';
+import {useNavigation} from '@react-navigation/native';
+import {CameraButton1} from '@ui/buttons';
+import {CameraView} from '@ui/camera';
+import React from 'react';
 export const IdentityVerificationScreen = () => {
-  const camera = useRef<RNCamera>(null);
-  const takePicture = async () => {
-    if (!camera.current) {
-      const options = {quality: 0.5, base64: true};
-      const data = await camera.current!.takePictureAsync(options);
-      console.log(data.uri);
-    }
+  const {camera, takePicture} = useCamera();
+  const navigation =
+    useNavigation<
+      TicketStackScreenProps<'IdenfityVerification'>['navigation']
+    >();
+
+  const takePictureNext: Parameters<typeof takePicture>[0] = path => {
+    navigation.navigate('PhotoScreen', {path});
   };
   return (
-    <View style={styles.container}>
-      <RNCamera
-        ref={camera}
-        style={styles.preview}
-        type={RNCamera.Constants.Type.back}
-        captureAudio={false}
-      />
-      {/* <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
-        <TouchableOpacity onPress={takePicture} style={styles.capture}>
-          <Text style={{fontSize: 14}}> SNAP </Text>
-        </TouchableOpacity>
-      </View> */}
-    </View>
+    <CameraView cameraRef={camera} type={'front'}>
+      <CameraButton1 onPress={takePicture(takePictureNext)} />
+    </CameraView>
   );
 };

@@ -1,8 +1,7 @@
 import {TicketStackScreenProps} from '@navigation/type';
 import {useNavigation} from '@react-navigation/native';
 import React, {useCallback, useMemo, useState} from 'react';
-import {Image, StyleSheet} from 'react-native';
-import {Button} from 'react-native-paper';
+
 import styled from 'styled-components/native';
 const _View = styled.View`
   flex: 1;
@@ -12,13 +11,22 @@ const _View = styled.View`
   opacity: ${({hasMediaLoaded}: {hasMediaLoaded: boolean}) =>
     hasMediaLoaded ? 1 : 0};
 `;
-
+const _Button = styled.Button`
+  flex: 0;
+  flex-direction: row;
+  justify-content: center;
+`;
+const _Image = styled.Image`
+  flex: 1;
+  width: 300px;
+  height: 500px;
+`;
 export function PhotoScreen({route}: TicketStackScreenProps<'PhotoScreen'>) {
   const {path} = route.params;
   const navigation =
     useNavigation<TicketStackScreenProps<'PhotoScreen'>['navigation']>();
   const [hasMediaLoaded, setHasMediaLoaded] = useState(false);
-  const source = useMemo(() => ({uri: `file://${path}`}), [path]);
+  const source = useMemo(() => ({uri: path}), [path]);
 
   const onMediaLoadEnd = useCallback(() => {
     console.log('media has loaded.');
@@ -27,18 +35,14 @@ export function PhotoScreen({route}: TicketStackScreenProps<'PhotoScreen'>) {
 
   return (
     <_View hasMediaLoaded={hasMediaLoaded}>
-      <Image
-        source={source}
-        style={StyleSheet.absoluteFill}
-        resizeMode="cover"
-        onLoadEnd={onMediaLoadEnd}
-      />
-      <Button
+      <_Button
+        title="next"
         onPress={() => {
           navigation.pop(2);
-        }}>
-        next
-      </Button>
+        }}
+      />
+
+      <_Image source={source} resizeMode="cover" onLoadEnd={onMediaLoadEnd} />
     </_View>
   );
 }
