@@ -42,6 +42,7 @@ export const EssayAnswerPhotoScreen = () => {
       // if (!model || !nextImageTensor)
       //   throw new Error('No model or image tensor');
       // await detect(nextImageTensor);
+      console.log('nextImageTensor ', nextImageTensor);
       requestAnimationFrame(loop);
     };
     loop();
@@ -50,37 +51,37 @@ export const EssayAnswerPhotoScreen = () => {
   //   const predication = await model?.detect(nextImageTensor);
   //   drawRectangle(predication!, nextImageTensor);
   // };
-  const drawRectangle = (
-    prediction: cocossd.DetectedObject[],
-    nextImageTensor: any,
-  ) => {
-    if (!context.current || !canvas.current) {
-      return;
-    }
-    //   //to match the size of camera preview
-    const scaleWidth = windowWidth / nextImageTensor.shape[1];
-    const scaleHeight = windowHeight / nextImageTensor.shape[0];
-    const flipHorizontal = Platform.OS === 'ios' ? false : true;
-    context.current.clearRect(0, 0, windowWidth, windowHeight);
-    prediction.map(item => {
-      const [x, y, width, height] = item.bbox;
-      const boundingBoxX = flipHorizontal
-        ? canvas.current!.width - x * scaleWidth - width * scaleHeight
-        : x * scaleWidth;
-      const boundingBoxY = y * scaleHeight;
-      context.current?.strokeRect(
-        boundingBoxX,
-        boundingBoxY,
-        width * scaleWidth,
-        height * scaleHeight,
-      );
-      context.current?.strokeText(
-        item.class,
-        boundingBoxX - 5,
-        boundingBoxY - 5,
-      );
-    });
-  };
+  // const drawRectangle = (
+  //   prediction: cocossd.DetectedObject[],
+  //   nextImageTensor: any,
+  // ) => {
+  //   if (!context.current || !canvas.current) {
+  //     return;
+  //   }
+  //   //   //to match the size of camera preview
+  //   const scaleWidth = windowWidth / nextImageTensor.shape[1];
+  //   const scaleHeight = windowHeight / nextImageTensor.shape[0];
+  //   const flipHorizontal = Platform.OS === 'ios' ? false : true;
+  //   context.current.clearRect(0, 0, windowWidth, windowHeight);
+  //   prediction.map(item => {
+  //     const [x, y, width, height] = item.bbox;
+  //     const boundingBoxX = flipHorizontal
+  //       ? canvas.current!.width - x * scaleWidth - width * scaleHeight
+  //       : x * scaleWidth;
+  //     const boundingBoxY = y * scaleHeight;
+  //     context.current?.strokeRect(
+  //       boundingBoxX,
+  //       boundingBoxY,
+  //       width * scaleWidth,
+  //       height * scaleHeight,
+  //     );
+  //     context.current?.strokeText(
+  //       item.class,
+  //       boundingBoxX - 5,
+  //       boundingBoxY - 5,
+  //     );
+  //   });
+  // };
   const handleCanvas = async (canvasFor: Canvas) => {
     if (!canvasFor) {
       return;
@@ -113,7 +114,7 @@ export const EssayAnswerPhotoScreen = () => {
         autorender={true}
         useCustomShadersToResize={false}
       />
-      <_Canvas ref={handleCanvas} />
+      {/* <_Canvas ref={handleCanvas} /> */}
     </_View>
   );
 };

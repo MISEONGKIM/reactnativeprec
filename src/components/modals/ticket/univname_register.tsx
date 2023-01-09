@@ -1,6 +1,5 @@
 import React, {useCallback, useState} from 'react';
 import styled from 'styled-components/native';
-import {View} from 'react-native';
 
 import ModalView from '@ui/modal';
 import {ModalStateType} from '@ui/modal/type';
@@ -11,7 +10,7 @@ import {useWrongMessage} from '@hooks';
 import {validationUnivName} from '@utils/validation';
 import {useNavigation} from '@react-navigation/native';
 import {TicketStackScreenProps} from '@navigation/type';
-import {cameraPermissionCheck} from '@utils/camera';
+import {View} from 'react-native';
 
 const _TitleView = styled.View`
   flex-direction: row;
@@ -59,9 +58,6 @@ export const UnivnameRegisterModal = (props: Partial<ModalStateType>) => {
             props.hideModal!();
             setIsDisabledButton(true);
             hideWrongMessage();
-            if (!(await cameraPermissionCheck())) {
-              return;
-            }
             navigation.navigate('IdenfityVerification');
           }}>
           계속

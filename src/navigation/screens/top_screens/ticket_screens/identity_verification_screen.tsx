@@ -1,69 +1,51 @@
-// import React, {useCallback, useRef, useState} from 'react';
-// import {TicketStackScreenProps} from '@navigation/type';
-// import {useIsFocused, useNavigation} from '@react-navigation/native';
-// import {CameraView} from '@components';
-// import {Button} from 'react-native-paper';
-// import styled from 'styled-components/native';
-// import {CameraButton} from '@ui/buttons';
-// // import {Camera, PhotoFile} from 'react-native-vision-camera';
-// import {useIsForeground} from '@hooks';
-// const _View = styled.View`
-//   background-color: black;
-//   position: absolute;
-//   left: 0px;
-//   right: 0px;
-//   top: 0px;
-//   bottom: 0px;
-// `;
+import React, {useRef} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {RNCamera} from 'react-native-camera';
 
-// const _Image = styled.Image`
-//   position: absolute;
-//   alignself: center;
-//   top: 200px;
-//   left: 30px;
-//   width: 300px;
-//   height: 300px;
-// `;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: 'black',
+  },
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  capture: {
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    padding: 15,
+    paddingHorizontal: 20,
+    alignSelf: 'center',
+    margin: 20,
+  },
+});
 
-// export const IdentityVerificationScreen = () => {
-//   // const camera = useRef<Camera>(null);
-//   const [isCameraInitialized, setIsCameraInitialized] = useState(false);
-//   const isFocussed = useIsFocused();
-//   const isForeground = useIsForeground();
-//   const isActive = isFocussed && isForeground;
-//   const navigation =
-//     useNavigation<
-//       TicketStackScreenProps<'IdenfityVerification'>['navigation']
-//     >();
-
-//   const onInitialized = useCallback(() => {
-//     console.log('Camera initialized!');
-//     setIsCameraInitialized(true);
-//   }, []);
-
-//   // const onMediaCaptured = useCallback(
-//   //   (media: PhotoFile) => {
-//   //     navigation.navigate('PhotoScreen', {
-//   //       path: media.path,
-//   //     });
-//   //   },
-//   //   [navigation],
-//   // );
-
-//   return (
-//     <_View>
-//       {/* <CameraView
-//         camera={camera}
-//         onInitialized={onInitialized}
-//         type={'front'}
-//       /> */}
-//       {/* <_Image source={require('@assets/images/user.png')} /> */}
-//       {/* <CameraButton
-//         camera={camera}
-//         //     onMediaCaptured={onMediaCaptured}
-//         enabled={isCameraInitialized && isActive}
-//       /> */}
-//       <Button onPress={() => navigation.goBack()}>back</Button>
-//     </_View>
-//   );
-// };
+export const IdentityVerificationScreen = () => {
+  const camera = useRef<RNCamera>(null);
+  const takePicture = async () => {
+    if (!camera.current) {
+      const options = {quality: 0.5, base64: true};
+      const data = await camera.current!.takePictureAsync(options);
+      console.log(data.uri);
+    }
+  };
+  return (
+    <View style={styles.container}>
+      <RNCamera
+        ref={camera}
+        style={styles.preview}
+        type={RNCamera.Constants.Type.back}
+        captureAudio={false}
+      />
+      {/* <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center'}}>
+        <TouchableOpacity onPress={takePicture} style={styles.capture}>
+          <Text style={{fontSize: 14}}> SNAP </Text>
+        </TouchableOpacity>
+      </View> */}
+    </View>
+  );
+};
