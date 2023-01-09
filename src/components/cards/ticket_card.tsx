@@ -1,20 +1,22 @@
-import {Text, Dimensions} from 'react-native';
+import {Text} from 'react-native';
 import React from 'react';
 import styled from 'styled-components/native';
 import {TicketType} from '@test/mock_data';
 import {H2} from '@ui/text';
+import {heightPercentage, widthPercentage} from '@utils/responsive_size';
 
 const _CardView = styled.View`
   border-bottom-width: 1px;
   background-color: #ffcad5;
-  height: ${Dimensions.get('window').height * 0.7}px;
-  width: ${Dimensions.get('window').width * 0.95}px;
+  height: ${heightPercentage(600)}px;
+  width: ${widthPercentage(300)}px;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
 `;
 
 export const TicketCard = ({item}: {item: TicketType}) => {
+  console.log(heightPercentage(600));
   return (
     <_CardView>
       <H2>{item.univName}</H2>

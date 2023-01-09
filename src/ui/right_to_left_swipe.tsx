@@ -1,5 +1,5 @@
 import React, {ReactNode, useRef, useState} from 'react';
-import {Dimensions, PanResponder} from 'react-native';
+import {PanResponder, useWindowDimensions} from 'react-native';
 import styled from 'styled-components/native';
 
 const _ViewContainer = styled.View`
@@ -21,8 +21,6 @@ const _SwipeView = styled.View`
   width: ${({widthPercent}: {widthPercent: number}) => widthPercent}px;
 `;
 
-const DIMENSIONS_WIDTH = Dimensions.get('window').width;
-
 export const RightToLeftSwipe = ({
   children,
   renderRightActions,
@@ -32,7 +30,8 @@ export const RightToLeftSwipe = ({
   renderRightActions: ReactNode;
   onSwipeableRightOpen: () => void;
 }) => {
-  const [width, setWidth] = useState(DIMENSIONS_WIDTH);
+  const dimensions = useWindowDimensions();
+  const [width, setWidth] = useState(dimensions.width);
 
   const panResponder = useRef(
     PanResponder.create({
@@ -45,21 +44,21 @@ export const RightToLeftSwipe = ({
         if (Math.abs(moveY - y0) > 50) {
           return;
         }
-        setWidth(DIMENSIONS_WIDTH - Math.abs(dx));
+        setWidth(dimensions.width - Math.abs(dx));
       },
       onPanResponderRelease: (evt, gestureState) => {
         const {dx, moveY, y0} = gestureState;
         if (
-          DIMENSIONS_WIDTH - Math.abs(dx) < DIMENSIONS_WIDTH / 4 &&
+          dimensions.width - Math.abs(dx) < dimensions.width / 4 &&
           Math.abs(moveY - y0) < 50
         ) {
           onSwipeableRightOpen();
         }
-        setWidth(DIMENSIONS_WIDTH);
+        setWidth(dimensions.width);
       },
       onPanResponderTerminationRequest: () => true,
       onPanResponderTerminate: () => {
-        setWidth(DIMENSIONS_WIDTH);
+        setWidth(dimensions.width);
       },
     }),
   ).current;
@@ -67,7 +66,7 @@ export const RightToLeftSwipe = ({
   return (
     <_ViewContainer {...panResponder.panHandlers}>
       <_DefaultView widthPercent={width}>{children}</_DefaultView>
-      <_SwipeView widthPercent={DIMENSIONS_WIDTH - width}>
+      <_SwipeView widthPercent={dimensions.width - width}>
         {renderRightActions}
       </_SwipeView>
     </_ViewContainer>
