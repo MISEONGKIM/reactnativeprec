@@ -1,21 +1,15 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {StyleSheet} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 import styled from 'styled-components/native';
 
 const _View = styled.View`
-  flex: 1;
-  flex-direction: column;
-  background-color: black;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
 `;
-
-const styles = StyleSheet.create({
-  preview: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-});
 
 export const CameraView = ({
   cameraRef,
@@ -24,13 +18,13 @@ export const CameraView = ({
 }: {
   cameraRef: React.LegacyRef<RNCamera>;
   type: 'back' | 'front';
-  children: React.ReactElement[] | React.ReactElement;
+  children: ReactNode[];
 }) => {
   return (
     <_View>
       <RNCamera
         ref={cameraRef}
-        style={styles.preview}
+        style={StyleSheet.absoluteFill}
         type={
           type === 'back'
             ? RNCamera.Constants.Type.back
