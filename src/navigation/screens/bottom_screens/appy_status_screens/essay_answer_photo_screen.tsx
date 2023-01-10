@@ -1,4 +1,4 @@
-import {AssayQuestionBar} from '@components';
+import {AssayQuestionDrawer} from '@components';
 import {useCamera} from '@hooks/useCamera';
 import {CameraButton1} from '@ui/buttons';
 import {CameraView} from '@ui/camera';
@@ -13,7 +13,7 @@ export const EssayAnswerPhotoScreen = () => {
   };
   return (
     <CameraView cameraRef={camera} type={'back'}>
-      <AssayQuestionBar />
+      <AssayQuestionDrawer />
       <EssayCameraGuideView />
       <CameraButton1 onPress={takePicture(takePictureNext)} />
     </CameraView>
